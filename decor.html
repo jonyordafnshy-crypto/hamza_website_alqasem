@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صور ديكور واجهات فلل - شركة القاسم </title>
+    <style>
+        /* إعدادات أساسية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* زر العودة للرئيسية */
+        .back-to-home {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #2980b9;
+            transform: scale(1.1);
+        }
+
+        /* شريط التنقل */
+        .main-nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            background-color: #3498db;
+        }
+
+        /* رأس الصفحة */
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* العناوين الرئيسية */
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            padding: 20px;
+            background-color: #ecf0f1;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        /* معرض الصور */
+        .gallery-section {
+            padding: 40px 20px;
+            background-color: white;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* الأيقونات الصغيرة في الزاوية */
+        .image-icons {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .icon-btn {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon-btn:hover {
+            background-color: white;
+            transform: scale(1.1);
+        }
+
+        .icon-btn.phone {
+            color: #3498db;
+        }
+
+        .icon-btn.whatsapp {
+            color: #25D366;
+        }
+
+        .image-title {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            max-width: 80%;
+        }
+
+        /* شريط أدوات التطوير */
+        .dev-tools-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #202124;
+            color: white;
+            padding: 8px 15px;
+            font-size: 12px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+            border-bottom: 1px solid #3c4043;
+        }
+
+        .dev-tools-left,
+        .dev-tools-center,
+        .dev-tools-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .dev-select {
+            background-color: #3c4043;
+            color: white;
+            border: 1px solid #5f6368;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+
+        .dev-tab {
+            color: #9aa0a6;
+            font-size: 11px;
+        }
+
+        .dev-active-tab {
+            color: white;
+            border-bottom: 2px solid #8ab4f8;
+            padding-bottom: 2px;
+        }
+
+        .dev-switch {
+            color: #8ab4f8;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        /* التذييل */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95a5a6;
+        }
+
+        /* زر الاتصال العائم */
+        .floating-phone {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #2ecc71;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .floating-phone:hover {
+            background-color: #27ae60;
+            transform: scale(1.1);
+        }
+
+        /* مساحة المحتوى الرئيسي */
+        .main-content {
+            margin-top: 40px;
+        }
+
+        /* وسائط الاستجابة */
+        @media (max-width: 768px) {
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .back-to-home {
+                top: 50px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .dev-tools-bar {
+                flex-direction: column;
+                height: auto;
+                padding: 5px;
+            }
+
+            .dev-tools-left,
+            .dev-tools-center,
+            .dev-tools-right {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .icon-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img {
+                height: 200px;
+            }
+
+            .image-title {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+
+
+
+
+
+
+        /* زر شجرة التنقل تحت زر الرئيسية */
+        .nav-tree-btn {
+            position: fixed;
+            top: 120px;
+            /* تحت زر الرئيسية */
+            right: 20px;
+            /* نفس مكان زر الرئيسية */
+            background-color: #e74c3c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-tree-btn:hover {
+            background-color: #c0392b;
+            transform: scale(1.1);
+        }
+
+        /* شجرة التنقل */
+        #navTree {
+            display: none;
+            position: fixed;
+            top: 180px;
+            /* تحت زر الشجرة */
+            right: 20px;
+            /* نفس مكان زر الشجرة */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1002;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            direction: rtl;
+        }
+
+        #navTree.active {
+            display: block;
+        }
+
+        #navTree h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        #navTree ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #navTree li {
+            margin-bottom: 10px;
+        }
+
+        #navTree a {
+            color: #3498db;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        #navTree a:hover {
+            background-color: #f0f7ff;
+            transform: translateX(-5px);
+        }
+
+        #navTree a i {
+            margin-left: 10px;
+            color: #3498db;
+        }
+
+        /* تجاوبية */
+        @media (max-width: 768px) {
+            .nav-tree-btn {
+                top: 105px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            #navTree {
+                top: 160px;
+                right: 15px;
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #navTree {
+                width: 90%;
+                right: 5%;
+                left: 5%;
+            }
+        }
+
+
+
+
+
+        /* أنيميشن للخلفية المتغيرة */
+        @keyframes slideChange {
+            0% {
+                opacity: 0;
+            }
+
+            33% {
+                opacity: 0.15;
+            }
+
+            66% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" href="img/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/LOGO.PNG">
+    <meta name="author" content="مؤسسة القاسم">
+
+    <meta name="keywords" content="ساندوتش بانل, مظلات, سواتر, الرياض, مقاولات, غرف معزولة, برجولات">
+</head>
+</head>
+
+<body>
+
+
+    <!-- زر العودة للرئيسية -->
+    <a href="index.html" class="back-to-home" title="العودة للصفحة الرئيسية">
+        <i class="fas fa-home"></i>
+    </a>
+
+
+
+
+    <!-- زر شجرة التنقل (تحت زر الرئيسية) -->
+    <button class="nav-tree-btn" id="navTreeToggle" title="قائمة الخدمات">
+        <i class="fas fa-sitemap"></i>
+    </button>
+
+
+
+
+    <!-- شجرة التنقل -->
+    <div id="navTree">
+        <h3><i class="fas fa-project-diagram"></i> قائمة الخدمات</h3>
+        <ul>
+            <ul>
+
+
+                <li><a href="barjolat.html"><i class="fas fa-cube"></i> برجولات</a></li>
+                <li><a href="mgls.html"><i class="fas fa-couch"></i> مجالس</a></li>
+                <li><a href="pyot_shar_malakya.html"><i class="fas fa-paint-roller"></i> بيوت شعر </a></li>
+                <li><a href="abwab_haded.html"><i class="fas fa-door-closed"></i> أبواب حديد</a></li>
+                <li><a href="shbok.html"><i class="fas fa-grip-lines"></i> شبوك</a></li>
+                <li><a href="grmed.html"><i class="fas fa-warehouse"></i> قرميد</a></li>
+                <li><a href="my_informatoin.html"><i class="fas fa-user-tie"></i> المطورون</a></li>
+            </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="header-slider" style="
+position: relative;
+padding: 30px 20px;
+text-align: center;
+margin-bottom: 30px;
+border-radius: 0 0 15px 15px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+overflow: hidden;
+min-height: 200px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+">
+
+        <!-- صور الخلفية المتغيرة المباشرة -->
+        <div class="header-bg-slider" style="
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    ">
+            <!-- الصورة الأولى -->
+            <div class="header-slide active" style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/decor1.webp');
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
+        "></div>
+
+            <!-- الصورة الثانية -->
+            <div class="header-slide" style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/decor2.webp');
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        "></div>
+
+            <!-- الصورة الثالثة -->
+            <div class="header-slide" style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/decor3.webp');
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        "></div>
+        </div>
+
+        <!-- طبقة داكنة خفيفة فوق الصور لتحسين وضوح النص -->
+        <div style="
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 0, 0, 0.4);
+    z-index: 1;
+    "></div>
+
+        <!-- محتوى الشعار (فوق الخلفية) -->
+        <div style="position: relative; z-index: 2;">
+            <img src="img/logo.webp" alt="شعار شركة القاسم" style="
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+        ">
+
+            <h2 style="
+            color: white;
+            margin: 10px 0 5px 0;
+            font-size: 28px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        ">
+                مظلات وسواتر مؤسسة القاسم
+            </h2>
+
+            <p style="
+            color: #000000;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0 0 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        ">
+                <i class="fas fa-star" style="margin-left: 8px;"></i>
+                خبرة واسعة في جميع الاعمال
+                <i class="fas fa-star" style="margin-right: 8px;"></i>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content">
+
+
+        <!-- العنوان الرئيسي -->
+        <h1>صور ديكور فلل </h1>
+
+        <div style="text-align: center; margin: 20px 0; color: #7f8c8d;">
+            <p> 2026</p>
+        </div>
+
+        <!-- معرض الصور -->
+
+
+
+        <!-- معرض الصور مع المقالات -->
+        <div class="gallery-grid">
+
+            <!-- الصورة 1 -->
+            <div class="gallery-item">
+                <img src="img/decor1.webp" alt="ديكور واجهات فلل مودرن الرياض">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">تصميم واجهات كلاسيك</div>
+            </div>
+            <!-- المقالة 1 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #3498db;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🏛️ تصميم واجهات فلل كلاسيكية: الفخامة المتجذرة في
+                    التاريخ</h3>
+                <p>التصميم الكلاسيكي للواجهات يمثل ذروة الأناقة المعمارية المستوحاة من العصور اليونانية والرومانية
+                    والعثمانية. يتميز باستخدام <strong>الأعمدة ذات التيجان المزخرفة</strong>، <strong>العقود المدببة
+                        والدائرية</strong>، والتفاصيل الجبسية الغنية. في مؤسسة القاسم، ننفذ هذه التصاميم باستخدام أحدث
+                    تقنيات الـGRC والحجر الطبيعي المعالج، مع الحفاظ على الأصالة المعمارية التي تتناسب مع فلل وقصور
+                    الرياض الراقية.</p>
+            </div>
+
+            <!-- الصورة 2 -->
+            <div class="gallery-item">
+                <img src="img/decor2.webp" alt="تشطيب واجهات خارجية فخمة">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">ديكورات واجهات حجر</div>
+            </div>
+            <!-- المقالة 2 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #e67e22;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🧱 واجهات الفلل الحجرية: متانة الطبيعة بأناقة العصر
+                </h3>
+                <p>تمتاز الواجهات الحجرية بقدرتها على تحمل الظروف المناخية القاسية مع الحفاظ على جمالها لسنوات طويلة.
+                    نستخدم في شركة القاسم <strong>حجر الرياض الكريمي ذو اللون الدافئ</strong> و<strong>الحجر الأبيض
+                        العسيري</strong> الذي يعكس أشعة الشمس، مما يوفر عزلًا حراريًا استثنائيًا. تركيبنا الاحترافي
+                    يتضمن نظام تهوية خلف الحجر يمنع تراكم الرطوبة ويزيد من عمر الواجهة.</p>
+            </div>
+
+            <!-- الصورة 3 -->
+            <div class="gallery-item">
+                <img src="img/decor3.webp" alt="ديكورات حديد مشغول للواجهات">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">ديكور حديد مودرن</div>
+            </div>
+            <!-- المقالة 3 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #9b59b6;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">⚙️ ديكورات الحديد المطروق المودرن: الخطوط النظيفة
+                    والتشكيلات الجريئة</h3>
+                <p>يمثل الحديد المشغول المودرن تحفة فنية تجمع بين متانة المعدن وأناقة التصميم المعاصر. نقدم في ورشة
+                    حدادة القاسم تصاميم حديدية بخطوط هندسية نظيفة، وأشكال مجردة، وزوايا حادة تعكس الذوق الحديث. يتم
+                    تنفيذها بتقنية القطع بالليزر والثني الحراري، مع طلاء بودرة إلكتروستاتيكي مقاوم للصدأ والخدش.</p>
+            </div>
+
+            <!-- الصورة 4 -->
+            <div class="gallery-item">
+                <img src="img/decor4.webp" alt="واجهات فلل قصور الرياض">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">تصميم خارجي راقي</div>
+            </div>
+            <!-- المقالة 4 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #e74c3c;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">👑 التصميم الخارجي الراقي للقصور: حيث تلتقي الضخامة
+                    بالأناقة</h3>
+                <p>تصميم الواجهات الخارجية للقصور يتطلب فهماً عميقاً للتناسب المعماري والتسلسل الهرمي البصري. ندمج في
+                    تصاميمنا <strong>المداخل العالية ذات الأقواس الضخمة</strong>، <strong>الأبراج الزاوية</strong>،
+                    و<strong>التفاصيل المعمارية الغنية</strong> التي تتناسب مع ضخامة البناء. استخدام المواد الفاخرة
+                    كالرخام الطبيعي والزجاج المقوى والحديد المطلي بالذهب يضفي لمسة ملكية على التصميم.</p>
+            </div>
+
+            <!-- الصورة 5 -->
+            <div class="gallery-item">
+                <img src="img/decor5.webp" alt="ديكورات شبابيك خارجية">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">إطارات نوافذ ديكورية</div>
+            </div>
+            <!-- المقالة 5 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #1abc9c;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🪟 إطارات النوافذ الديكورية: إطار الجمال الذي يحدد
+                    شخصية الواجهة</h3>
+                <p>إطارات النوافذ ليست مجرد عنصر وظيفي، بل هي إطار فني يبرز جمال النوافذ ويعطي العمق للواجهة. نصنع في
+                    مؤسسة القاسم براويز نوافذ من <strong>الحجر المنحوت</strong>، <strong>الخشب المعالج</strong>،
+                    و<strong>الحديد المشغول</strong>، يمكن تخصيصها حسب الطراز المعماري للمبنى. البرواز البارز يعطي
+                    إحساساً بالقوة والعظمة، خاصة عند دمجه مع إضاءة جانبية مميزة.</p>
+            </div>
+
+            <!-- الصورة 6 -->
+            <div class="gallery-item">
+                <img src="img/decor6.webp" alt="تكسيات واجهات خارجية">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">تكسيات جدارية فخمة</div>
+            </div>
+            <!-- المقالة 6 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #e74c3c;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🎨 التكسيات الجدارية الفخمة: تحويل الجدران إلى لوحات
+                    فنية</h3>
+                <p>تكسيات الجدران الخارجية تضيف طبقة من العمق والثراء البصري للواجهة. نقدم تشكيلة واسعة من التكسيات تشمل
+                    <strong>الحجر الصناعي بألوان متدرجة</strong>، <strong>الطوب الزخرفي</strong>، و<strong>الألواح
+                        المعدنية المركبة</strong>. تركيبنا يتضمن عزل حراري ومائي يحمي المبنى من العوامل الجوية، مع
+                    إمكانية تخصيص التصميم ليناسب المساحة والذوق الشخصي.
+                </p>
+            </div>
+
+            <!-- الصورة 7 -->
+            <div class="gallery-item">
+                <img src="img/decor7.webp" alt="ديكورات مداخل فلل">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">ديكور مدخل رئيسي</div>
+            </div>
+            <!-- المقالة 7 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #8e44ad;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🚪 ديكور المدخل الرئيسي: الانطباع الأول الذي يدوم</h3>
+                <p>مدخل الفيلا هو بطاقة التعريف الأولى التي ترحب بالضيوف. نصمم مداخل رئيسية تجمع بين <strong>الأبواب
+                        الضخمة من الخشب الطبيعي أو الحديد المزخرف</strong>، <strong>المظلات الفنية</strong>،
+                    و<strong>الإضاءة الجذابة</strong>. نهتم بتفاصيل مثل الأرضيات المميزة، النقوش الجبسية حول المدخل،
+                    والمقاعد الجانبية الفخمة، لخلق تجربة دخول لا تُنسى.</p>
+            </div>
+
+            <!-- الصورة 8 -->
+            <div class="gallery-item">
+                <img src="img/decor8.webp" alt="إضاءة واجهات خارجية">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">توزيع إضاءة واجهات</div>
+            </div>
+            <!-- المقالة 8 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #1a1a2e; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #f1c40f; color: white;">
+                <h3 style="color: #f1c40f; margin-bottom: 15px;">💡 توزيع الإضاءة الخارجية: فن إبراز الجمال الليلي
+                    للواجهات</h3>
+                <p>الإضاءة المحترفة تحول واجهة الفيلا ليلاً إلى تحفة مضيئة. نطبق في شركة القاسم تقنيات إضاءة متقدمة تشمل
+                    <strong>إضاءة الغمر للمساحات الواسعة</strong>، <strong>الإضاءة الموجهة للتفاصيل المعمارية</strong>،
+                    و<strong>الإضاءة المخفية تحت الشرفات والسلالم</strong>. استخدام مصابيح LED الذكية القابلة للتحكم في
+                    الشدة واللون عبر الهاتف يضيف بعداً حديثاً للتصميم.
+                </p>
+            </div>
+
+            <!-- الصورة 9 -->
+            <div class="gallery-item">
+                <img src="img/decor9.webp" alt="ديكورات أسوار فلل">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">تجميل أسوار خارجية</div>
+            </div>
+            <!-- المقالة 9 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #27ae60;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🧱 تجميل الأسوار الخارجية: الحدود الجميلة التي تحمي
+                    الخصوصية</h3>
+                <p>الأسوار ليست مجرد حواجز أمان، بل هي عنصر جمالي يكمّل الصورة العامة للفيلا. ننفذ أسواراً متنوعة تشمل
+                    <strong>الأسوار الحجرية المتينة</strong>، <strong>الأسوار الحديدية المزخرفة</strong>،
+                    و<strong>الأسوار الخرسانية الملبسة بالحجر أو القرميد</strong>. التصميم يتضمن تفاصيل مثل الأعمدة
+                    المزخرفة، القمم الفنية، والإضاءة المدمجة التي تضفي جمالاً ليلاً.
+                </p>
+            </div>
+
+            <!-- الصورة 10 -->
+            <div class="gallery-item">
+                <img src="img/decor10.webp" alt="تصاميم حدادة فنية للواجهات">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">أعمال حدادة فنية</div>
+            </div>
+            <!-- المقالة 10 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #c0392b;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">⚒️ أعمال الحدادة الفنية: حيث يتحول الحديد إلى شعر
+                    معمارى</h3>
+                <p>أعمال الحدادة الفنية تمثل قمة الإبداع في تشكيل المعادن. ننتج في ورشتنا <strong>المشربيات (المورق) ذات
+                        الزخارف الإسلامية</strong>، <strong>السلالم الحلزونية الفنية</strong>، و<strong>المظلات الحديدية
+                        المنقوشة</strong>. كل قطعة تُصنع يدوياً وتُطلى بمواد مقاومة للصدأ تضمن بقاء الجمال لعقود من
+                    الزمن.</p>
+            </div>
+
+            <!-- الصورة 11 -->
+            <div class="gallery-item">
+                <img src="img/decor11.webp" alt="ديكورات برواز نوافذ">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">براويز واجهات حديثة</div>
+            </div>
+            <!-- المقالة 11 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #1565c0;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🔲 براويز الواجهات الحديثة: البساطة العصرية بأبهى
+                    حُللِها</h3>
+                <p>براويز النوافذ الحديثة تتسم بالخطوط النظيفة والأشكال الهندسية البسيطة. نستخدم <strong>الحديد المربع
+                        المجوف</strong> و<strong>الألمنيوم المعالج</strong> لصناعة إطارات نحيفة تتناسب مع نوافذ الأرض
+                    للسقف والفتحات الزجاجية الكبيرة. التصميم يركز على الاستمرارية البصرية، حيث يمتد الإطار ليكون جزءاً
+                    من الشرفات أو المصاطب الخارجية.</p>
+            </div>
+
+            <!-- الصورة 12 -->
+            <div class="gallery-item">
+                <img src="img/decor12.webp" alt="تنسيق ألوان واجهات">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">تناسق ألوان خارجي</div>
+            </div>
+            <!-- المقالة 12 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #fbc02d;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🎨 تناسق الألوان الخارجي: لوحة فنية على جدار المنزل
+                </h3>
+                <p>اختيار الألوان المناسبة للواجهة هو علم وفن معاً. نطبق قاعدة 60-30-10 في تنسيق الألوان: <strong>60%
+                        لون أساسي</strong> (لون الحجر أو الدهان)، <strong>30% لون ثانوي</strong> (لون النوافذ والأبواب)،
+                    <strong>10% لون لهجة</strong> (تفاصيل صغيرة جريئة). نقدم استشارات لاختيار ألوان تتناسب مع الموقع
+                    الجغرافي والاتجاه والذوق الشخصي.
+                </p>
+            </div>
+
+            <!-- الصورة 13 -->
+            <div class="gallery-item">
+                <img src="img/decor13.webp" alt="ديكورات قرميد واجهات">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">لمسات قرميد ديكورية</div>
+            </div>
+            <!-- المقالة 13 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #795548;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🧱 لمسات القرميد الديكورية: دفء التراث على جدران العصر
+                </h3>
+                <p>القرميد يضيف لمسة دافئة وتراثية للواجهات الحديثة. نستخدمه كـ <strong>إفريز تحت الأسقف</strong>،
+                    <strong>تغطية للجملونات المثلثة</strong>، أو <strong>زخرفة حول النوافذ العلوية</strong>. القرميد
+                    الخرساني المقاوم للعوامل الجوية يأتي بألوان متعددة تتراوح من الأحمر الترابي إلى البني الداكن، ويمكن
+                    تركيبه بسهولة على مختلف الأسطح.
+                </p>
+            </div>
+
+            <!-- الصورة 14 -->
+            <div class="gallery-item">
+                <img src="img/decor14.webp" alt="تصميم بلكونات خارجية">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">ديكور شرفات وبلكونات</div>
+            </div>
+            <!-- المقالة 14 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #7b1fa2;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🌇 ديكور الشرفات والبلكونات: غرف المعيشة في الهواء
+                    الطلق</h3>
+                <p>الشرفات والبلكونات هي امتداد للمساحة المعيشية إلى الخارج. نصممها لتكون <strong>مساحات وظيفية
+                        وجميلة</strong> مع استخدام <strong>الدرابزين الزجاجي الشفاف</strong> أو <strong>الحديد
+                        المشغول</strong>، <strong>أرضيات الخشب المعالج</strong>، و<strong>مظلات قابلة للفتح</strong>.
+                    إضافة نباتات الزينة والإضاءة المخفية يحول هذه المساحات إلى جوهرة الواجهة.</p>
+            </div>
+
+            <!-- الصورة 15 -->
+            <div class="gallery-item">
+                <img src="img/decor15.webp" alt="ديكورات GRC واجهات">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">تشكيلات GRC فنية</div>
+            </div>
+            <!-- المقالة 15 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #546e7a;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🏗️ تشكيلات GRC الفنية: المرونة التي لا حدود لها في
+                    التصميم</h3>
+                <p>مادة GRC (الخرسانة المسلحة بالألياف الزجاجية) ثورة في عالم ديكور الواجهات. خفة وزنها وقابليتها
+                    للتشكيل تتيح لنا تنفيذ <strong>نقوش معقدة</strong>، <strong>أعمدة كاملة</strong>، و<strong>واجهات
+                        ثلاثية الأبعاد</strong> كانت مستحيلة بالحجر التقليدي. مقاومتها المطلقة للماء والحرارة تجعلها
+                    مثالية لمناخ السعودية.</p>
+            </div>
+
+            <!-- الصورة 16 -->
+            <div class="gallery-item">
+                <img src="img/decor16.webp" alt="ديكورات خشبية للواجهات">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">تكسيات خشبية مودرن</div>
+            </div>
+            <!-- المقالة 16 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #8d6e63;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🪵 التكسيات الخشبية المودرن: دفء الطبيعة بأناقة العصر
+                </h3>
+                <p>الخشب في الواجهات الخارجية يضفي إحساساً بالدفء والطبيعة. نستخدم <strong>خشب الساج المعالج</strong>
+                    و<strong>الخشب الصناعي (الكومبوزيت)</strong> المقاوم للرطوبة والحشرات. التركيب بنظام التعليق مع فجوة
+                    تهوية يضمن تهوية الخشب ومنع التشوه. الألوان الطبيعية للخشب تتناسق بشكل رائع مع الحجر والزجاج في
+                    التصاميم المعاصرة.</p>
+            </div>
+
+            <!-- الصورة 17 -->
+            <div class="gallery-item">
+                <img src="img/decor17.webp" alt="تصميم مظلات واجهات">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">مظلات ديكورية للواجهة</div>
+            </div>
+            <!-- المقالة 17 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #0097a7;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">⛱️ مظلات الواجهات الديكورية: الحماية بلمسة فنية</h3>
+                <p>المظلات الخارجية تحمي من أشعة الشمس المباشرة وتضيف عنصراً جمالياً للواجهة. نصنع <strong>مظلات حديدية
+                        بتصاميم فنية</strong> مغطاة بألواح البولي كربونات الملون، <strong>مظلات قماشية قابلة
+                        للفتح</strong>، و<strong>برجولات خشبية</strong> يمكن تغطيتها بنباتات متسلقة. التصميم يأخذ في
+                    الاعتبار زاوية الشمس طوال اليوم لتحقيق أقصى حماية.</p>
+            </div>
+
+            <!-- الصورة 18 -->
+            <div class="gallery-item">
+                <img src="img/decor18.webp" alt="ديكورات شبابيك حديد">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">حمايات حديد مزخرفة</div>
+            </div>
+            <!-- المقالة 18 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #ad1457;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🔒 حمايات النوافذ الحديدية المزخرفة: الأمان في ثوب الفن
+                </h3>
+                <p>نوافذ الحماية (الكرتين) المصنوعة من الحديد المشغول تجمع بين الوظيفة الأمنية والجمالية. نستخدم
+                    <strong>قضبان حديدية بسماكة لا تقل عن 12مم</strong>، مع <strong>تصاميم زخرفية تسمح بالتهوية
+                        والإطلالة</strong>. نظام القفل المركزي والتثبيت بمسمار expansion في الحائط يضمن أعلى مستويات
+                    الأمان دون التأثير على جمال الواجهة.
+                </p>
+            </div>
+
+            <!-- الصورة 19 -->
+            <div class="gallery-item">
+                <img src="img/decor19.webp" alt="تجديد واجهات فلل قديمة">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">ترميم وتجميل واجهات</div>
+            </div>
+            <!-- المقالة 19 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #ff8f00;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🔨 ترميم وتجميل الواجهات القديمة: إعادة الشباب لجدران
+                    الزمن</h3>
+                <p>ترميم الواجهات القديمة يحفظ تاريخ المبنى ويعيد له رونقه. نبدأ بـ <strong>التنظيف العميق بالكرات
+                        الزجاجية</strong>، ثم <strong>إصلاح الشقوق الهيكلية</strong>، <strong>استبدال القطع
+                        التالفة</strong>، وأخيراً <strong>التشطيب بمواد عازلة ودهانات خاصة</strong>. العملية تشمل أيضاً
+                    تحديث الإضاءة وإضافة عناصر ديكورية معاصرة تتواءم مع الأصالة.</p>
+            </div>
+
+            <!-- الصورة 20 -->
+            <div class="gallery-item">
+                <img src="img/decor20.webp" alt="ديكورات فلل استراحات الرياض">
+                <div class="image-icons">
+                    <button class="icon-btn phone" onclick="callNumber('+966532228615')"><i
+                            class="fas fa-phone"></i></button>
+                    <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')"><i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+                <div class="image-title">ديكورات خارجية شاملة</div>
+            </div>
+            <!-- المقالة 20 -->
+            <div class="article-box"
+                style="grid-column: 1/-1; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0 40px; border-right: 5px solid #673ab7;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🏘️ الديكورات الخارجية الشاملة: رؤية موحدة من الفكرة
+                    إلى التنفيذ</h3>
+                <p>نقدم في مؤسسة القاسم حلاً شاملاً يشمل كل عناصر الديكور الخارجي: <strong>الواجهات الحجرية
+                        والخشبية</strong>، <strong>أعمال الحدادة الفنية</strong>، <strong>نظام الإضاءة
+                        المتكامل</strong>، و<strong>الديكورات التكميلية</strong>. التعامل مع فريق واحد متكامل يضمن وحدة
+                    التصميم، الجودة الموحدة، وتوفير الوقت والجهد على صاحب المشروع، مع ضمان شامل على جميع الأعمال.</p>
+            </div>
+
+        </div> <!-- نهاية gallery-grid -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- التذييل -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ========== بداية المقالات المحسّنة للصور العشرين ========== -->
+        <div style="grid-column: 1 / -1; margin-top: 60px;">
+
+            <h2
+                style="text-align: center; color: #2c3e50; font-size: 2.3rem; margin-bottom: 40px; padding-bottom: 15px; border-bottom: 3px solid #3498db;">
+                <i class="fas fa-crown"></i> دليل خبراء القاسم: مقالات شاملة عن ديكور وتصميم واجهات الفلل 2026
+            </h2>
+            <p
+                style="text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 40px; max-width: 800px; margin-right: auto; margin-left: auto;">
+                اكتشف معنا كل ما تحتاج معرفته عن أحدث مواد وتصاميم ديكور الواجهات الخارجية. مقالات مفصلّة كتبها مهندسونا
+                لمساعدتك في اختيار الأنسب لمنزلك.
+            </p>
+
+            <!-- المقال 1 - تحت الصورة 1: تصميم واجهات كلاسيك -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #f8f9fa 0%, #e9f7fe 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #3498db; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-archway"></i> تصميم واجهات كلاسيكي: دليل كامل لفخامة لا تضاهى (2026)
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    <strong>التصميم الكلاسيكي للواجهات</strong> ليس مجرد اختيار شكلي، بل هو استثمار في الهيبة والقيمة
+                    الدائمة. يعتمد هذا الطراز على قواعد هندسية صارمة مثل التناظر والتوازن، مع إثراء التفاصيل بالنقوش
+                    والزخارف المستوحاة من العصور اليونانية والرومانية والعمارة الإسلامية. في <strong>مؤسسة
+                        القاسم</strong>، ننفذ الواجهات الكلاسيكية باستخدام مواد عالية المقاومة مثل <strong>حجر الرياض
+                        الكريمي</strong> و<strong>قوالب GRC المزخرفة</strong>، والتي تتحمل مناخ المملكة القاسي لسنوات
+                    طويلة.
+                </p>
+                <h4 style="color: #2980b9; margin: 20px 0 10px 0;">🏛️ العناصر الأساسية لواجهة كلاسيكية ناجحة:</h4>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li><strong>الأعمدة والعقود:</strong> استخدام أعمدة ذات تيجان كورنثية أو أيونية، وعقود (أقواس) مدببة
+                        أو دائرية.</li>
+                    <li><strong>التفاصيل الزخرفية:</strong> إطارات النوافذ الغنية (بروايز)، والكرانيش (الإفريز) تحت
+                        السقف، والتماثيل الجبسية الصغيرة.</li>
+                    <li><strong>التسلسل الهرمي:</strong> إبراز المدخل الرئيسي من خلال حجمه وتصميمه، وجعل باقي العناصر
+                        تابعة له بصرياً.</li>
+                    <li><strong>نظام الألوان:</strong> الألوان الترابية والهادئة كالبيج، الكريمي، الأبيض العاجي، والذهبي
+                        العتيق.</li>
+                </ul>
+                <div
+                    style="background-color: #fff8e1; border-right: 4px solid #f39c12; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                    <p style="margin: 0; color: #d35400; font-weight: bold;"><i class="fas fa-lightbulb"></i> نصيحة
+                        خبرائنا: لا تبالغ في الزخرفة. التصميم الكلاسيكي الناجح يعتمد على التوازن. ننصح بعمل نموذج
+                        (ماكيت) أو تصور ثلاثي الأبعاد قبل البناء للتأكد من تناسب جميع العناصر.</p>
+                </div>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #3498db, #2c3e50); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4); transition: all 0.3s;"><i
+                            class="fas fa-drafting-compass"></i> اطلب تصميمًا ثلاثي الأبعاد لواجهتك الكلاسيكية</button>
+                </div>
+            </div>
+
+            <!-- المقال 2 - تحت الصورة 2: ديكورات واجهات حجر -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #fffaf0 0%, #fdf6e3 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #e67e22; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-mountain"></i> ديكورات واجهات الفلل بالحجر: دليل اختيار الحجر المناسب وطريقة
+                    التركيب
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    يعد <strong>الحجر الطبيعي</strong> ملك مواد الواجهات بلا منازع. فهو يجمع بين <strong>المتانة
+                        الخارقة، العزل الحراري الممتاز، والجمال الطبيعي الفريد</strong> الذي لا يتكرر. في السعودية،
+                    تتنوع خيارات الحجر حسب المنطقة، ونحن في <strong>شركة القاسم</strong> نورد جميع الأنواع مع تقديم
+                    استشارة مجانية لاختيار الأنسب لمنطقتك وميزانيتك.
+                </p>
+                <div style="overflow-x: auto; margin: 20px 0;">
+                    <table
+                        style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <thead style="background: #d35400; color: white;">
+                            <tr>
+                                <th style="padding: 15px; text-align: right;">نوع الحجر</th>
+                                <th style="padding: 15px; text-align: right;">المميزات</th>
+                                <th style="padding: 15px; text-align: right;">السعر التقريبي (متر مربع)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 15px; color: #2c3e50;"><strong>حجر الرياض الكريمي</strong></td>
+                                <td style="padding: 15px; color: #2c3e50;">لون دافئ، متانة عالية، الأكثر طلبًا</td>
+                                <td style="padding: 15px; color: #c0392b;">متوسط إلى مرتفع</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 15px; color: #2c3e50;"><strong>الحجر الأبيض العسيري</strong></td>
+                                <td style="padding: 15px; color: #2c3e50;">عزل حراري ممتاز، إطلالة أنيقة ونظيفة</td>
+                                <td style="padding: 15px; color: #c0392b;">مرتفع</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; color: #2c3e50;"><strong>الحجر الصناعي (الكومبوزيت)</strong>
+                                </td>
+                                <td style="padding: 15px; color: #2c3e50;">خفيف الوزن، ألوان وتشطيبات متعددة، سريع
+                                    التركيب</td>
+                                <td style="padding: 15px; color: #27ae60;">منخفض إلى متوسط</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>طريقة التركيب:</strong> نستخدم
+                    طريقتين أساسيتين: <strong>التركيب بالملاط (الأسمنت)</strong> للفلل الجديدة، و<strong>التثبيت
+                        الميكانيكي (بالبراغي والحوامل)</strong> للتشطيبات والتجديدات. نضمن استخدام مواد لاصقة ومانعة
+                    للتسرب (سيكا) ذات جودة عالمية.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="whatsappMessage('+966532228615')"
+                        style="background: linear-gradient(to left, #25D366, #128C7E); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);"><i
+                            class="fab fa-whatsapp"></i> أرسل مساحة واجهتك واحصل على سعر فوري للحجر</button>
+                </div>
+            </div>
+
+            <!-- المقال 3 - تحت الصورة 3: ديكور حديد مودرن -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #9b59b6; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-palette"></i> ديكورات الحديد المطروق للواجهات: بين الفن الحديث والكلاسيكي
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    <strong>الحديد المشغول</strong> هو لغة فنية تترجم ذوق صاحب المنزل. من <strong>الشبابيك
+                        والأبواب</strong> إلى <strong>المظلات والسلالم</strong> الخارجية، يضيف الحديد لمسة قوة وأناقة.
+                    في <strong>ورشة حدادة القاسم</strong>، نصنع تصميمات مودرن بخطوط نظيفة، أو كلاسيكية بتشكيلات نباتية
+                    معقدة، أو حتى ندمج الاثنين معًا.
+                </p>
+                <h4 style="color: #8e44ad; margin: 20px 0 10px 0;">🎨 تصاميم حديد واجهات فلل 2026:</h4>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 20px 0;">
+                    <div
+                        style="text-align: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <i class="fas fa-th-large fa-2x" style="color:#9b59b6;"></i>
+                        <h5 style="color: #2c3e50; margin: 10px 0;">المودرن الهندسي</h5>
+                        <p style="font-size: 0.9rem; color: #7f8c8d;">مربعات، مستطيلات، وخطوط مستقيمة تخلق إيقاعًا
+                            بصريًا حديثًا.</p>
+                    </div>
+                    <div
+                        style="text-align: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <i class="fas fa-leaf fa-2x" style="color:#27ae60;"></i>
+                        <h5 style="color: #2c3e50; margin: 10px 0;">الكلاسيكي النباتي</h5>
+                        <p style="font-size: 0.9rem; color: #7f8c8d;">زخارف مستوحاة من أوراق الأشجار والعناقيد، تعطي
+                            إحساسًا بالدفء.</p>
+                    </div>
+                    <div
+                        style="text-align: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <i class="fas fa-dharmachakra fa-2x" style="color:#e74c3c;"></i>
+                        <h5 style="color: #2c3e50; margin: 10px 0;">الطراز الإسلامي</h5>
+                        <p style="font-size: 0.9rem; color: #7f8c8d;">أشكال هندسية متداخلة (أرابيسك) تعكس التراث
+                            المعماري الأصيل.</p>
+                    </div>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>الطلاء والحماية:</strong> نستخدم
+                    تقنية <strong>الطلاء الإلكتروستاتيكي (البودرة)</strong> التي تغلف الحديد بطبقة متجانسة وقوية مقاومة
+                    للخدش والصدمات والصدأ. نقدم خيارات ألوان واسعة من الأسود الفاحم إلى الألوان المعدنية.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #9b59b6, #8e44ad); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);"><i
+                            class="fas fa-hammer"></i> تريد تصميم حديد مخصص؟ تحدث مع حدادنا الخبير</button>
+                </div>
+            </div>
+
+            <!-- المقال 4 - تحت الصورة 4: تصميم خارجي راقي -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #f9f7f7 0%, #f0f0f0 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #e74c3c; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-gem"></i> تصميم خارجي راقي للفلل: 7 أسرار لتحويل واجهة منزلك إلى تحفة فنية
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    الرقي في التصميم الخارجي لا يعتمد على التكلفة فقط، بل على <strong>التناسق والذكاء في اختيار
+                        التفاصيل</strong>. سواء كان تصميمك مودرن أو كلاسيكي، فهذه الأسرار تضمن لك نتيجة مبهرة:
+                </p>
+                <ol style="color: #2c3e50; padding-right: 25px; margin-bottom: 20px; line-height: 1.9;">
+                    <li><strong>الوحدة البصرية:</strong> اختيار لونين أو ثلاثة كحد أقصى يتناسقون مع بعضهم ومع البيئة
+                        المحيطة.</li>
+                    <li><strong>الإضاءة كعنصر تصميمي:</strong> لا تستخدم الإضاءة للإضاءة فقط، بل لإبراز نسيج الحجر،
+                        وتشكيل ظلال للحديد المشغول، وتوجيه النظر نحو المدخل.</li>
+                    <li><strong>المقياس الصحيح:</strong> تناسب حجم النوافذ والأبواب مع حجم الحائط الكلي، وتجنب العناصر
+                        الضخمة في المساحات الصغيرة.</li>
+                    <li><strong>المفاجأة البصرية:</strong> إضافة عنصر واحد مميز وغير متوقع (نافورة صغيرة، جدار نباتي،
+                        قطعة فنية حديدية).</li>
+                    <li><strong>جودة المواد فوق الكمية:</strong> متر مربع من الحجر الطبيعي ذي الجودة العالية أفضل من
+                        عشرة أمتار من المواد الرخيصة.</li>
+                    <li><strong>الاندماج مع الطبيعة:</strong> دمج مساحات خضراء أو مائية (حوض سباحة مرئي) في التصميم
+                        الخارجي.</li>
+                    <li><strong>النظافة والترتيب:</strong> تصميم مخفي لصناديق الكهرباء والوحدات الخارجية للمكيفات.</li>
+                </ol>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;">في <strong>شركة القاسم</strong>، يقوم
+                    مهندس التصميم الداخلي والخارجي لدينا بتطبيق هذه المبادئ معك خطوة بخطوة، من أول مخطط فكرة حتى تركيب
+                    آخر لمبة إضاءة.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="whatsappMessage('+966532228615')"
+                        style="background: linear-gradient(to left, #e74c3c, #c0392b); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);"><i
+                            class="fas fa-magic"></i> احجز استشارة مجانية مع مصممنا لوضع خطة التصميم الخارجي</button>
+                </div>
+            </div>
+
+            <!-- المقال 5 - تحت الصورة 5: إطارات نوافذ ديكورية -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #edfff9 0%, #e1fff4 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #1abc9c; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-border-style"></i> إطارات وبراويز النوافذ الخارجية: اللمسة الأخيرة التي تحدث فرقًا
+                    كبيرًا
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    النافذة بدون إطار تشبه اللوحة الفنية بدون برواز. <strong>إطار النافذة الخارجي</strong> يعزز أمنها،
+                    يحسن عزلتها، ويُعرِّف بشكلها. الاختيار يعتمد على الطراز المعماري الكلي للفيلا:
+                </p>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li><strong>للطراز الحديث:</strong> إطارات معدنية نحيفة (من الألمنيوم أو الحديد المطلي) باللون
+                        الأسود أو الرمادي أو البرونزي.</li>
+                    <li><strong>للطراز الكلاسيكي:</strong> براويز عريضة من الحجر أو GRC، قد تحتوي على زخارف نباتية أو
+                        كورنيش بسيط في الأعلى.</li>
+                    <li><strong>للطراز الريفي/المزرعة:</strong> إطارات خشبية عريضة معالجة ضد الرطوبة والحرارة، غالبًا
+                        بلون الخشب الطبيعي.</li>
+                    <li><strong>للطراز العربي/الإسلامي:</strong> إطار على شكل عقد (قوس) مدبب أو مفصص، مع زجاج ملون في
+                        بعض الأحيان.</li>
+                </ul>
+                <div
+                    style="background-color: #e8f8f5; border-right: 4px solid #1abc9c; padding: 15px; border-radius: 8px;">
+                    <p style="margin: 0; color: #0d5c4a; font-weight: bold;"><i class="fas fa-exclamation-triangle"></i>
+                        ملاحظة فنية: عند تركيب برواز حجري ثقيل، يجب تعزيز منطقة التركيب في الجدار، وغالبًا ما يتم ربطه
+                        بأسلاك فولاذية أو حوامل داخلية لضمان الثبات التام.</p>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 20px; color: #34495e;">نقوم بتصنيع وتركيب
+                    براويز نوافذ مخصصة تناسب جميع أنواع النوافذ الألمنيوم أو UPVC، مع ضمان عزل كامل ضد تسرب المياه
+                    والعواصف الترابية.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #1abc9c, #16a085); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(26, 188, 156, 0.4);"><i
+                            class="fas fa-window-maximize"></i> استفسر عن أسعار وتصاميم براويز النوافذ</button>
+                </div>
+            </div>
+
+            <!-- المقال 6 - تحت الصورة 6: تكسيات جدارية فخمة -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #e74c3c; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-th-large"></i> تكسيات واجهات الفلل: دليلك بين الحجر، الخشب، الـGRC والمواد الحديثة
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    التكسية هي "الجلد" الخارجي للفيلا. اختيار المادة المناسب يعتمد على الميزانية، الطراز، والموقع
+                    الجغرافي. <strong>شركة القاسم</strong> تقدم جميع الخيارات:
+                </p>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li><strong>تكسيات الحجر:</strong> (مذكورة بالتفصيل سابقاً) للمتانة والفخامة.</li>
+                    <li><strong>تكسيات الخشب المعالج:</strong> (سنتناولها بالتفصيل لاحقاً) للدفء والطبيعة.</li>
+                    <li><strong>تكسيات GRC:</strong> خفيفة الوزن، قابلة للتشكيل لأي تصميم، ومقاومة للحريق والعوامل
+                        الجوية. مثالية للزخارف المعقدة.</li>
+                    <li><strong>الألواح المعدنية المركبة:</strong> ذات مظهر صناعي أنيق، متوفرة بألوان لامعة، تركيب سريع.
+                    </li>
+                    <li><strong>الطوب الزخرفي أو الكلينكر:</strong> يعطي إطلالة أوروبية ريفية، عازل جيد للحرارة.</li>
+                </ul>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>التركيب:</strong> نحرص على وجود
+                    فجوة تهوية (Ventilated Facade) خلف التكسية عندما يكون ذلك ممكناً، مما يحسن العزل الحراري ويطيل عمر
+                    المادة.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="whatsappMessage('+966532228615')"
+                        style="background: linear-gradient(to left, #e74c3c, #d35400); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);"><i
+                            class="fas fa-layer-group"></i> احصل على عينات مجانية من مواد التكسية</button>
+                </div>
+            </div>
+
+            <!-- المقال 7 - تحت الصورة 7: ديكور مدخل رئيسي -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #f4ecf7 0%, #e8daef 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #8e44ad; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-door-open"></i> تصميم مداخل الفلل الرئيسية: كيف تصنع انطباعًا أوليًا لا ينسى؟
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    المدخل هو <strong>مصافحة المنزل مع ضيوفه</strong>. تصميمه يجب أن يكون واضحًا، مرحبًا، ويعكس ما بداخل
+                    الفيلا. عناصر المدخل الناجح:
+                </p>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
+                    <div
+                        style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <h5 style="color: #8e44ad;">🚪 الباب نفسه</h5>
+                        <p>خشب زان أو ساج منقوش، أو باب حديد مشغول فني، مع مقبض (عروة) كبير وأنيق.</p>
+                    </div>
+                    <div
+                        style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <h5 style="color: #8e44ad;">🛋️ مساحة الانتظار (الدهليز)</h5>
+                        <p>سقف مرتفع أو مصمم بشكل مميز، أرضية مختلفة (مثل رخام بلون متناقض)، مقعد صغير.</p>
+                    </div>
+                    <div
+                        style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <h5 style="color: #8e44ad;">💡 الإضاءة الجذابة</h5>
+                        <p>ثريا معلقة أو إضاءة جدارية فنية، إضاءة أرضية موجهة نحو الباب.</p>
+                    </div>
+                    <div
+                        style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <h5 style="color: #8e44ad;">🌿 العناصر الطبيعية</h5>
+                        <p>نباتات كبيرة في أصص فخمة على الجانبين، أو نافورة صغيرة قريبة.</p>
+                    </div>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;">نصمم المدخل كجزء لا يتجزأ من الواجهة، مع
+                    مراعاة سهولة الوصول والخصوصية.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #8e44ad, #7d3c98); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);"><i
+                            class="fas fa-key"></i> صمم مدخلك الرئيسي مع مهندس معماري متخصص</button>
+                </div>
+            </div>
+
+            <!-- المقال 8 - تحت الصورة 8: توزيع إضاءة واجهات -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #f1c40f; box-shadow: 0 6px 15px rgba(0,0,0,0.1); color: #ecf0f1;">
+                <h3 style="color: #f1c40f; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-lightbulb"></i> إضاءة واجهات الفلل: فن تحويل منزلك إلى لوحة مضيئة ليلاً
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px;">
+                    الإضاءة الجيدة هي <strong>الماكياج الليلي</strong> للواجهة. تهدف إلى إبراز الجمال، توفير الأمان،
+                    وخلق أجواء ساحرة. هناك أربعة أنواع رئيسية:
+                </p>
+                <ol style="padding-right: 25px; margin-bottom: 20px; line-height: 1.9;">
+                    <li><strong>إضاءة الغمر (Flood Lighting):</strong> لإضاءة مساحة كبيرة من الواجهة بشكل متساوٍ.</li>
+                    <li><strong>الإضاءة الموجهة (Spot Lighting):</strong> لتسليط الضوء على عنصر معين (شجرة، تمثال،
+                        نافورة).</li>
+                    <li><strong>إضاءة التلغيم (Grazing):</strong> وضع مصابيح قريبة من الحائط لإبراز نسيج الحجر أو
+                        القرميد.</li>
+                    <li><strong>الإضاءة المخفية (Recessed Lighting):</strong> داخل الدرج، تحت المظلات، لإضافة عمق دون
+                        رؤية المصدر.</li>
+                </ol>
+                <p style="font-size: 1.1rem; line-height: 1.8;"><strong>التقنيات الحديثة:</strong> نستخدم مصابيح
+                    <strong>LED</strong> موفرة للطاية وطويلة العمر، مع أنظمة تحكم ذكية تتيح تغيير الألوان أو الشدة حسب
+                    المناسبات، والتحكم بها عن بعد عبر الجوال.
+                </p>
+                <div
+                    style="background-color: rgba(241, 196, 15, 0.2); border-right: 4px solid #f1c40f; padding: 15px; border-radius: 8px;">
+                    <p style="margin: 0; color: #f1c40f; font-weight: bold;"><i class="fas fa-exclamation-circle"></i>
+                        نصيحة: تجنب الإضاءة المباشرة نحو الشوارع أو جيرانك حتى لا تسبب إزعاجًا بصريًا. اختر زوايا تركيب
+                        دقيقة.</p>
+                </div>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="whatsappMessage('+966532228615')"
+                        style="background: linear-gradient(to left, #f1c40f, #f39c12); color: #2c3e50; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);"><i
+                            class="fas fa-sun"></i> اطلب دراسة إضاءة متكاملة لواجهة منزلك</button>
+                </div>
+            </div>
+
+            <!-- المقال 9 - تحت الصورة 9: تجميل أسوار خارجية -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #e8f5e9 0%, #d4efdf 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #27ae60; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-fence"></i> ديكورات وتجميل أسوار الفلل: تحقيق التوازن بين الخصوصية والجمال
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    السور ليس مجرد حاجز، بل هو <strong>الإطار الذي يحيط بلوحة منزلك</strong>. يجب أن يكون متناسقًا مع
+                    طراز الفيلا:
+                </p>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li><strong>سور حجري:</strong> يندمج مع واجهة الحجر، يعطي إحساسًا بالقوة والأصالة.</li>
+                    <li><strong>سور حديد مشغول:</strong> يوفر الخصوصية الجزئية مع السماح بمرور الضوء والهواء، أنيق وشفاف
+                        بصريًا.</li>
+                    <li><strong>سور خرساني مزيّن:</strong> يمكن تشكيله أو تركيب قوالب GRC عليه لمحاكاة الحجر أو الطوب.
+                    </li>
+                    <li><strong>سور نباتي (Green Wall):</strong> دمج نباتات متسلقة على هيكل معدني، صديق للبيئة وجميل.
+                    </li>
+                </ul>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>التكامل مع البوابة:</strong>
+                    نحرص على تصميم البوابة كجزء عضوي من السور، سواء كانت انزلاقية أو مفتوحة، مع إضاءة مناسبة وتفاصيل
+                    مطابقة.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #27ae60, #229954); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);"><i
+                            class="fas fa-draw-polygon"></i> استشرنا لتصميم سور فريد يوفر الخصوصية والأناقة</button>
+                </div>
+            </div>
+
+            <!-- المقال 10 - تحت الصورة 10: أعمال حدادة فنية -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #fff0f0 0%, #ffe6e6 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #c0392b; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-hammer"></i> أعمال الحدادة الفنية للواجهات: من الفن الإسلامي إلى المنحنيات العصرية
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    تتجاوز أعمال حدادتنا <strong>الشبابيك والأبواب</strong> لتشمل <strong>المظلات الفنية، الشرفات
+                        المعلقة، الدرابزينات الخارجية، والمشربيات (المورق)</strong>. نستخدم تقنيات القطع بالليزر والثني
+                    الحراري لتنفيذ أدق التفاصيل.
+                </p>
+                <div
+                    style="background: white; border-radius: 10px; padding: 20px; margin: 20px 0; border: 1px dashed #c0392b;">
+                    <h4 style="color: #c0392b; text-align: center; margin-bottom: 15px;">🔨 مشاريع حدادة واجهات نفتخر
+                        بها:</h4>
+                    <ul style="color: #2c3e50; padding-right: 20px; line-height: 1.9;">
+                        <li><strong>مظلة مدخل من الحديد المطروق</strong> على شكل أوراق شجر متداخلة.</li>
+                        <li><strong>درابزين لسلم خارجي</strong> بخطوط مودرن غير منتظمة.</li>
+                        <li><strong>مشربية (حماية ونقش)</strong> لنوافذ الطابق الأرضي توفر الخصوصية مع التهوية.</li>
+                        <li><strong>سور حديدي</strong> مزخرف بخط الثلث العربي لاسم العائلة.</li>
+                    </ul>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>الضمان:</strong> بسبب استخدامنا
+                    لأفضل أنواع الحديد (الحديد الأسود السميك أو الحديد المربع المجوف) وطلاء البودرة، نقدم <strong>ضمانًا
+                        ممتدًا يصل إلى 10 سنوات ضد الصدأ</strong> على أعمال الحدادة الخارجية.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="whatsappMessage('+966532228615')"
+                        style="background: linear-gradient(to left, #c0392b, #a93226); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);"><i
+                            class="fas fa-fire"></i> أرسل لنا فكرتك وسنحوّلها إلى تصميم حديدي فني</button>
+                </div>
+            </div>
+
+            <!-- المقال 11 - تحت الصورة 11: براويز واجهات حديثة -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #1565c0; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-cube"></i> براويز النوافذ الحديثة (مودرن): الخطوط النظيفة والأشكال المجرّدة
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    في الطراز الحديث، يصبح الإطار <strong>جزءًا عضويًا من الكتلة المعمارية</strong> بدلاً من كونه زخرفة
+                    منفصلة. المبادئ الأساسية:
+                </p>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li><strong>الاستمرارية:</strong> قد يمتد الإطار الأفقي ليصبح شرفة أو مصطبة.</li>
+                    <li><strong>التباين اللوني:</strong> إطار أسود أو رمادي غامق على حائط أبيض ناصع (أو العكس).</li>
+                    <li><strong>الخطوط الأفقية الطويلة:</strong> نوافذ شراعية طويلة (Ribbon Windows) بإطارات معدنية
+                        رفيعة جدًا.</li>
+                    <li><strong>الزجاج الكبير:</strong> نوافذ من الأرض للسقف (Full-height) لإزالة الحدود بين الداخل
+                        والخارج.</li>
+                </ul>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;">ننفذ هذه البراويز باستخدام
+                    <strong>الحديد المربع المجوف أو الألمنيوم</strong>، مع تركيب دقيق يضمن عدم تشرب المياه وعزل حراري
+                    وصوتي عالي.
+                </p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #1565c0, #0d47a1); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(21, 101, 192, 0.4);"><i
+                            class="fas fa-border-none"></i> استفسر عن براويز النوافذ المودرن ذات الخطوط النحيفة</button>
+                </div>
+            </div>
+
+            <!-- المقال 12 - تحت الصورة 12: تناسق ألوان خارجي -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #fbc02d; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-fill-drip"></i> تنسيق ألوان واجهات الفلل: نظرية الألوان وكيفية تطبيقها عمليًا
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    الألوان تخلق المزاج وتؤثر على إدراك حجم المبنى. <strong>القاعدة الذهبية: 60-30-10</strong>.
+                </p>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li><strong>60% لون أساسي:</strong> يغطي أكبر مساحة (جدران الحجر أو الدهان).</li>
+                    <li><strong>30% لون ثانوي:</strong> للتشديد (لون النوافذ/الأبواب/بعض الجدران).</li>
+                    <li><strong>10% لون لهجة:</strong> لمسات صغيرة جريئة (مقابض أبواب ذهبية، إطار لوحة المنزل، زهور).
+                    </li>
+                </ul>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>مجموعات ناجحة للمناخ
+                        السعودي:</strong>
+                    <br><strong>مجموعة الألوان الترابية:</strong> بيج (الحجر) + بني غامق (الخشب/الحديد) + أخضر
+                    (النباتات).
+                    <br><strong>مجموعة البحري الحديث:</strong> أبيض + أزرق كحلي/رمادي + لمسات خشب فاتح.
+                    <br><strong>مجموعة الجرأة:</strong> رمادي فاتح + أسود فاحم + أحمر أو أصفر لهجة.
+                </p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="whatsappMessage('+966532228615')"
+                        style="background: linear-gradient(to left, #fbc02d, #f9a825); color: #2c3e50; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 5px 15px rgba(251, 192, 45, 0.4);"><i
+                            class="fas fa-palette"></i> احصل على لوحة ألوان مضمونة النتيجة لواجهة منزلك</button>
+                </div>
+            </div>
+
+            <!-- المقال 13 - تحت الصورة 13: لمسات قرميد ديكورية -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #efebe9 0%, #d7ccc8 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #795548; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-tint"></i> ديكورات القرميد للواجهات: لمحة تراثية أنيقة على الأسطح والشرفات
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    القرميد لا يقتصر على الأسطح فقط. استخدامه <strong>ككسر لل視野 (كسر بصري)</strong> في أجزاء من الواجهة
+                    يعطي إحساسًا بالدفء والتراث. نستخدم القرميد:
+                </p>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li><strong>في الجملونات (الجزء العلوي المثلث من الواجهة).</strong></li>
+                    <li><strong>كإفريز (شريط) تحت السقف أو بين الطوابق.</strong></li>
+                    <li><strong>في أعمدة المدخل أو حول النوافذ العلوية.</strong></li>
+                    <li><strong>لتبليط أرضية الشرفة أو المدخل الخارجي.</strong></li>
+                </ul>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>أنواع القرميد:</strong> الطيني
+                    التقليدي (ثقيل)، القرميد الخرساني (أخف وزنًا وألوانًا أكثر)، القرميد البلاستيكي (لتقليد الشكل فقط).
+                    نرشح الأنواع المقاومة للغبار وسهلة التنظيف.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #795548, #5d4037); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(121, 85, 72, 0.4);"><i
+                            class="fas fa-shapes"></i> استفسر عن دمج القرميد كلمسة ديكورية في واجهتك</button>
+                </div>
+            </div>
+
+            <!-- المقال 14 - تحت الصورة 14: ديكور شرفات وبلكونات -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #7b1fa2; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-columns"></i> ديكورات الشرفات والبلكونات الخارجية: تحويل المساحة الصغيرة إلى جوهرة
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    الشرفة هي <strong>غرفة المعيشة في الهواء الطلق</strong>. ديكورها الخارجي يجب أن يكون امتدادًا
+                    للواجهة وأن يوفر الخصوصية.
+                </p>
+                <div style="background: white; border-radius: 10px; padding: 20px; margin: 20px 0;">
+                    <h4 style="color: #7b1fa2; margin-bottom: 10px;">عناصر ديكور الشرفة الناجحة:</h4>
+                    <p><strong>الدرابزين/الحاجز:</strong> حديد مشغول، زجاج شفاف، أو خشب. <strong>الأرضية:</strong> خشب
+                        معالج، سيراميك مقاوم للصقيع، أو حصى. <strong>السقف/المظلة:</strong> برجولة خشبية أو معدنية، أو
+                        مظلة قماشية قابلة للفتح. <strong>الخصوصية:</strong> ستائر خارجية، شاشات خشبية (لوفر)، أو نباتات
+                        متسلقة.</p>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>التصميم:</strong> نفضل تصميم
+                    الشرفة ككتلة بارزة (Cantilever) لتعطي إحساسًا بالاتساع، مع إضاءة مخفية تحت المقاعد أو في الأرضية.
+                </p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="whatsappMessage('+966532228615')"
+                        style="background: linear-gradient(to left, #7b1fa2, #6a1b9a); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(123, 31, 162, 0.4);"><i
+                            class="fas fa-umbrella-beach"></i> احصل على تصميم متكامل لشرفتك الخارجية</button>
+                </div>
+            </div>
+
+            <!-- المقال 15 - تحت الصورة 15: تشكيلات GRC فنية -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #546e7a; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-project-diagram"></i> تشكيلات GRC للواجهات: المادة السحرية لتحقيق أحلامك التصميمية
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    <strong>الـGRC</strong> (الخرسانة المسلحة بالألياف الزجاجية) هي مادة ثورية. <strong>خفيفة
+                        الوزن</strong> (مقارنة بالحجر)، <strong>قابلة للتشكيل</strong> لأي تصميم (كلاسيكي معقد أو مودرن
+                    مجرد)، و<strong>مقاومة تمامًا للعوامل الجوية</strong>.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>استخداماتها في واجهات
+                        الفلل:</strong></p>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li>نقوش وأعمدة كورنثية كاملة.</li>
+                    <li>شرفات كاملة (بالتوربيد) مع تفاصيل دقيقة.</li>
+                    <li>إطارات نوافذ وأبواب عريضة بنقوش بارزة.</li>
+                    <li>واجهات كاملة بتصميم ثلاثي الأبعاد (3D Facades).</li>
+                    <li>قباب زخرفية صغيرة لأسقف المداخل.</li>
+                </ul>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;">نمتلك في <strong>القاسم</strong> مصنعًا
+                    خاصًا لتصنيع قوالب الـGRC، مما يضمن جودة عالية وسرعة في التنفيذ وتكلفة أقل للعميل.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #546e7a, #37474f); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(84, 110, 122, 0.4);"><i
+                            class="fas fa-shapes"></i> اكتشف إمكانيات الـGRC غير المحدودة في واجهة منزلك</button>
+                </div>
+            </div>
+
+            <!-- المقال 16 - تحت الصورة 16: تكسيات خشبية مودرن -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #f5e6d3 0%, #e8d0b3 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #8d6e63; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-tree"></i> تكسيات واجهات الفلل بالخشب: الدفء الطبيعي في أقسى المناخات
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    يضيف الخشب <strong>دفئًا وإحساسًا عضويًا</strong> لا تضاهيه أي مادة. مع التقنيات الحديثة في
+                    المعالجة، أصبح <strong>مقاومًا للحريق، الرطوبة، الحشرات، والتشقق</strong>.
+                </p>
+                <h4 style="color: #6d4c41; margin: 20px 0 10px 0;">🌲 أنواع الخشب المناسب للواجهات الخارجية في السعودية:
+                </h4>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li><strong>خشب الساج (Teak):</strong> الملك. زيتي طبيعيًا، مقاوم للماء والعفن بدرجة استثنائية. غالي
+                        الثمن.</li>
+                    <li><strong>خشب الأرز الأحمر الغربي:</strong> رائحة عطرية طاردة للحشرات، مقاوم جيد للتعفن.</li>
+                    <li><strong>خشب الموسكي (المعالج بالضغط):</strong> اقتصادي، معالج كيميائيًا ضد العوامل الجوية، يحتاج
+                        لدهان دوري.</li>
+                    <li><strong>الخشب الصناعي (الكومبوزيت):</strong> خليط من ألياف الخشب والبلاستيك، لا يحتاج صيانة
+                        تقريبًا، متعدد الألوان.</li>
+                </ul>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;">ننفذ التكسيات الخشبية بنظام
+                    <strong>التعليق (Cladding)</strong> مع فجوة تهوية خلفها لضمان التهوية ومنع تراكم الرطوبة.
+                </p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="whatsappMessage('+966532228615')"
+                        style="background: linear-gradient(to left, #8d6e63, #6d4c41); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(141, 110, 99, 0.4);"><i
+                            class="fas fa-leaf"></i> اختر خشب واجهتك من بين عيناتنا عالية الجودة</button>
+                </div>
+            </div>
+
+            <!-- المقال 17 - تحت الصورة 17: مظلات ديكورية للواجهة -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #0097a7; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-umbrella"></i> مظلات واجهات الفلل الديكورية: حماية من الشمس بلمسة جمالية
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    المظلة ليست عملية فقط، بل يمكن أن تكون <strong>عنصرًا تصميميًا بارزًا</strong>، خاصة فوق المدخل أو
+                    النوافذ الكبيرة.
+                </p>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                    <div
+                        style="text-align: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <h5 style="color: #0097a7;">⛱️ مظلات القماش</h5>
+                        <p>متعددة الألوان والأشكال، قابلة للفتح والرد، تحتاج صيانة.</p>
+                    </div>
+                    <div
+                        style="text-align: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <h5 style="color: #0097a7;">🛠️ مظلات الحديد/الألمنيوم</h5>
+                        <p>دائمة، يمكن تشكيلها بشكل فني، مع ألواح من البولي كربونات الملون.</p>
+                    </div>
+                    <div
+                        style="text-align: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+                        <h5 style="color: #0097a7;">🌿 مظلات الخشب (البرجولات)</h5>
+                        <p>طبيعية، يمكن تغطيتها بنباتات متسلقة، تناسب الطراز الريفي.</p>
+                    </div>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>التصميم:</strong> نصمم المظلة
+                    لتصبح جزءًا من خطوط الواجهة، مع مراعاة زاوية الشمس طوال السنة لتحقيق أقصى حماية.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #0097a7, #00838f); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 151, 167, 0.4);"><i
+                            class="fas fa-shield-alt"></i> صمم مظلة ديكورية توفر الظل وتعزز جمال مدخل منزلك</button>
+                </div>
+            </div>
+
+            <!-- المقال 18 - تحت الصورة 18: حمايات حديد مزخرفة -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #ad1457; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-shield-alt"></i> حمايات ونوافذ حديد مزخرفة: الأمان دون التضحية بالجمال أو الضوء
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    الحماية ضرورة، لكنها لا يجب أن تبدو كسجن. <strong>نوافذ الحماية (الكرتين)</strong> المصنوعة من
+                    الحديد المشغول توفِّر أمانًا عاليًا مع الحفاظ على الإطلالة والتهوية.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;"><strong>مواصفات الحماية الجيدة:</strong>
+                </p>
+                <ul style="color: #2c3e50; padding-right: 20px; margin-bottom: 20px;">
+                    <li>تصميم يسمح بفتح النافذة الداخلية للتهوية دون عائق.</li>
+                    <li>استخدام قضبان حديدية ذات سماكة لا تقل عن 12 ملم، ومتباعدة بمسافة آمنة.</li>
+                    <li>نظام قفل مركزي متين، وتثبيت بمسمار expansion في الحائط من الداخل.</li>
+                    <li>طلاء مضاد للصدأ (بودرة) يتحمل الخدش.</li>
+                </ul>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;">نصمم الحمايات لتكون جميلة من الداخل
+                    والخارج، وقد ندمج فيها <strong>رفًا صغيرًا لوضع النباتات</strong> من الداخل.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="whatsappMessage('+966532228615')"
+                        style="background: linear-gradient(to left, #ad1457, #880e4f); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(173, 20, 87, 0.4);"><i
+                            class="fas fa-lock"></i> احصل على استشارة أمنية مجانية وتصميم لحمايات نوافذك</button>
+                </div>
+            </div>
+
+            <!-- المقال 19 - تحت الصورة 19: ترميم وتجميل واجهات -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #ffecb3 0%, #ffd54f 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #ff8f00; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-tools"></i> ترميم وتجديد واجهات الفلل القديمة: إعادة الحياة إلى منزلك بأقل تكلفة
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    لا داعي للهدم! <strong>ترميم الواجهة</strong> يمكن أن يغير مظهر الفيلا القديمة بالكامل ويزيد من
+                    قيمتها السوقية. خطواتنا المتخصصة:
+                </p>
+                <ol style="color: #2c3e50; padding-right: 25px; margin-bottom: 20px; line-height: 1.9;">
+                    <li><strong>التقييم الفني:</strong> فحص الشقوق، التساقط، الصدأ، وتسربات المياه.</li>
+                    <li><strong>التنظيف العميق:</strong> استخدام البخار أو الكرات الزجاجية (Sandblasting) لإزالة الأتربة
+                        والأملاح والدهانات القديمة.</li>
+                    <li><strong>الإصلاحات الهيكلية:</strong> حقن الشقوق، إصلاح الكسور، واستبدال القطع التالفة من الحجر
+                        أو الخرسانة.</li>
+                    <li><strong>التشطيب الجديد:</strong> إضافة طبقة عازلة، ثم الدهان أو تركيب التكسيات الجديدة (حجر
+                        صناعي خفيف، GRC، قرميد).</li>
+                    <li><strong>التجميل النهائي:</strong> تركيب ديكورات جديدة (بروايز، مظلات) وطلي الأبواب والنوافذ.
+                    </li>
+                </ol>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;">نقدم <strong>ضمانًا على أعمال
+                        الترميم</strong> لمدة تصل إلى 5 سنوات.</p>
+                <div style="text-align: left; margin-top: 25px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to left, #ff8f00, #ff6f00); color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(255, 143, 0, 0.4);"><i
+                            class="fas fa-history"></i> اطلب زيارة فنية مجانية لتقييم واجهتك القديمة واقتراح حلول
+                        الترميم</button>
+                </div>
+            </div>
+
+            <!-- المقال 20 - تحت الصورة 20: ديكورات خارجية شاملة -->
+            <div class="article-box"
+                style="background: linear-gradient(135deg, #d1c4e9 0%, #b39ddb 100%); padding: 30px; border-radius: 12px; margin-bottom: 40px; border-right: 6px solid #673ab7; box-shadow: 0 6px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.8rem;">
+                    <i class="fas fa-vector-square"></i> تصميم وتنفيذ ديكورات خارجية شاملة للفلل: رؤية واحدة من المخطط
+                    إلى التنفيذ
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; color: #34495e;">
+                    هذا هو <strong>الحل الشامل</strong> لأصحاب الفلل الجديدة أو الذين يريدون تغييرًا جذريًا. بدلاً من
+                    التعامل مع مقاولين منفصلين للحجر والحديد والدهان والإضاءة، تتعامل مع <strong>شركة واحدة
+                        مسؤولة</strong>: مؤسسة القاسم.
+                </p>
+                <h4 style="color: #5e35b1; margin: 20px 0 10px 0;">🚀 مراحل المشروع الشامل مع القاسم:</h4>
+                <div style="background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                    <p><strong>المرحلة 1: التصميم والتخطيط</strong><br>اجتماع مع المصمم، دراسة الموقع والبيئة، وضع
+                        المخططات ثنائية وثلاثية الأبعاد، اختيار المواد والألوان.</p>
+                    <p><strong>المرحلة 2: التنفيذ المتزامن</strong><br>فرق متخصصة تعمل بتناسق: الحدادة، أعمال الحجر
+                        والـGRC، التكسيات الخشبية، التمديدات الكهربائية للإضاءة.</p>
+                    <p><strong>المرحلة 3: التشطيب والتركيبات</strong><br>الدهانات النهائية، تركيب الأبواب والنوافذ،
+                        تركيب عناصر الديكور النهائية (مشربيات، مظلات).</p>
+                    <p><strong>المرحلة 4: التسليم والضمان</strong><br>فحص نهائي مع العميل، تسليم كتيب الصيانة، وضمان
+                        شامل على جميع الأعمال يصل إلى 7 سنوات.</p>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #34495e;">بهذه الطريقة، تضمن <strong>وحدة في
+                        التصميم، جودة في التنفيذ، وتوفير في الوقت والتكلفة الإجمالية</strong>.</p>
+                <div style="text-align: center; margin-top: 30px;">
+                    <button onclick="callNumber('+966532228615')"
+                        style="background: linear-gradient(to right, #3498db, #9b59b6, #e74c3c); color: white; border: none; padding: 15px 35px; font-size: 1.2rem; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 7px 20px rgba(0,0,0,0.2);"><i
+                            class="fas fa-star"></i> ابدأ مشروع الفيلا الشامل مع القاسم: اتصل بمدير المشروع
+                        الآن</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- ========== نهاية المقالات المحسّنة للصور العشرين ========== -->
+
+
+
+
+
+
+
+
+
+        <footer>
+            <div class="footer-content">
+                <div
+                    style="margin: 30px 0; padding: 20px; background-color: rgba(255,255,255,0.1); border-radius: 10px;">
+                    <h3 style="color: white; margin-bottom: 40px;">
+
+                        شكرا لزيارتكم
+                    </h3>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <p style="font-size: 1.5rem; margin: 10px 0;">+966 53 222 8615</p>
+                        <p style="font-size: 1.5rem; margin: 10px 0;">اتصل الان</p>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>شركة القاسم للساندوتش بانل </p>
+                    <p style="margin-top: 10px; font-size: 1.2rem;">+966 53 222 8615</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- زر الاتصال العائم -->
+    <a href="tel:+966532228615" class="floating-phone">
+        <i class="fas fa-phone"></i>
+    </a>
+
+
+
+
+
+
+    <!-- زر واتساب عائم -->
+    <div style="
+  position: fixed;
+  bottom: 120px;
+  left: 25px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse-whatsapp 2s infinite;
+" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 20px rgba(37, 211, 102, 0.6)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(37, 211, 102, 0.4)';"
+        onclick="window.open('https://wa.me/966532228615', '_blank');">
+
+        <!-- أيقونة واتساب الأساسية -->
+        <svg style="width: 32px; height: 32px;" viewBox="0 0 24 24">
+            <path fill="white"
+                d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.39-4.19-1.15l-.3-.17l-3.12.82l.83-3.04l-.2-.32a8.188 8.188 0 0 1-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.24M8.53 7.33c-.16 0-.43.06-.66.31c-.22.25-.87.86-.87 2.07c0 1.22.89 2.39 1 2.56c.14.17 1.76 2.67 4.25 3.73c.59.27 1.05.42 1.41.53c.59.19 1.13.16 1.56.1c.48-.07 1.46-.6 1.67-1.18c.21-.58.21-1.07.15-1.18c-.07-.1-.23-.16-.48-.28c-.25-.13-1.46-.72-1.69-.8c-.23-.08-.37-.12-.56.12c-.16.25-.64.81-.78.97c-.15.17-.29.19-.54.07c-.26-.13-1.06-.39-2-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.12-.24-.01-.39.11-.5c.11-.11.27-.29.37-.44c.13-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.11-.56-1.35-.77-1.84c-.2-.48-.4-.42-.56-.43c-.14 0-.3-.01-.47-.01z" />
+        </svg>
+
+    </div>
+
+    <style>
+        @keyframes pulse-whatsapp {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // دالة للاتصال بالرقم
+        function callNumber(phoneNumber) {
+            if (confirm(`هل تريد الاتصال بالرقم ${phoneNumber}؟`)) {
+                window.location.href = `tel:${phoneNumber}`;
+            }
+        }
+
+        // دالة لإرسال رسالة واتساب
+        function whatsappMessage(phoneNumber) {
+            const message = "مرحباً، أريد الاستفسار عن   الديكور";
+            const whatsappURL = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // جعل جميع الروابط تعمل
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const pageName = this.textContent;
+                alert(`سيتم توجيهك إلى صفحة: ${pageName}\n\n(سيتم إنشاء هذه الصفحة لاحقاً)`);
+            });
+        });
+
+        // زر الاتصال العائم
+        const floatingPhone = document.querySelector('.floating-phone');
+        floatingPhone.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (confirm('هل تريد الاتصال بالرقم +966532228615؟')) {
+                window.location.href = 'tel:+966532228615';
+            }
+        });
+
+        // زر العودة للرئيسية
+        const backButton = document.querySelector('.back-to-home');
+        backButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            // if (confirm('هل تريد العودة للصفحة الرئيسية؟')) {
+            window.location.href = 'index.html';
+        }
+        );
+
+
+
+
+
+
+
+
+
+
+
+
+        // شجرة التنقل
+        const navTreeToggle = document.getElementById('navTreeToggle');
+        const navTree = document.getElementById('navTree');
+
+        if (navTreeToggle && navTree) {
+            navTreeToggle.addEventListener('click', function (e) {
+                e.stopPropagation(); // لمنع الإغلاق الفوري
+                navTree.classList.toggle('active');
+            });
+
+            // إغلاق شجرة التنقل عند النقر خارجها
+            document.addEventListener('click', function (event) {
+                if (navTree.classList.contains('active') &&
+                    !navTree.contains(event.target) &&
+                    !navTreeToggle.contains(event.target)) {
+                    navTree.classList.remove('active');
+                }
+            });
+
+            // إغلاق شجرة التنقل عند النقر على رابط داخلي
+            navTree.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function () {
+                    navTree.classList.remove('active');
+                });
+            });
+        }
+
+
+
+
+
+
+
+
+        // كود JavaScript لتبديل الخلفيات
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.header-slide');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            // دالة لتغيير الخلفية
+            function changeBackground() {
+                // إخفاء كل الشرائح
+                slides.forEach(slide => {
+                    slide.style.opacity = '0';
+                });
+
+                // إظهار الشريحة الحالية
+                slides[currentSlide].style.opacity = '0.80';
+
+                // الانتقال للشريحة التالية
+                currentSlide = (currentSlide + 1) % totalSlides;
+            }
+
+            // تغيير الخلفية كل 3 ثواني
+            setInterval(changeBackground, 3000);
+
+            // بدء التبديل فور تحميل الصفحة
+            changeBackground();
+
+            // التأكد من أن الصور موجودة
+            const imageUrls = [
+                'img/decor1.webp',
+                'img/decor2.webp',
+                'img/decor3.webp'
+            ];
+
+            // تحميل مسبق للصور لمنع التأخير
+            imageUrls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

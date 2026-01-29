@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صور تركيب مضلات شركة القاسم</title>
+    <style>
+        /* إعدادات أساسية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* زر العودة للرئيسية */
+        .back-to-home {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #2980b9;
+            transform: scale(1.1);
+        }
+
+        /* شريط التنقل */
+        .main-nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            background-color: #3498db;
+        }
+
+        /* رأس الصفحة */
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* العناوين الرئيسية */
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            padding: 20px;
+            background-color: #ecf0f1;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        /* معرض الصور */
+        .gallery-section {
+            padding: 40px 20px;
+            background-color: white;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* الأيقونات الصغيرة في الزاوية */
+        .image-icons {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .icon-btn {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon-btn:hover {
+            background-color: white;
+            transform: scale(1.1);
+        }
+
+        .icon-btn.phone {
+            color: #3498db;
+        }
+
+        .icon-btn.whatsapp {
+            color: #25D366;
+        }
+
+        .image-title {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            max-width: 80%;
+        }
+
+        /* شريط أدوات التطوير */
+        .dev-tools-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #202124;
+            color: white;
+            padding: 8px 15px;
+            font-size: 12px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+            border-bottom: 1px solid #3c4043;
+        }
+
+        .dev-tools-left,
+        .dev-tools-center,
+        .dev-tools-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .dev-select {
+            background-color: #3c4043;
+            color: white;
+            border: 1px solid #5f6368;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+
+        .dev-tab {
+            color: #9aa0a6;
+            font-size: 11px;
+        }
+
+        .dev-active-tab {
+            color: white;
+            border-bottom: 2px solid #8ab4f8;
+            padding-bottom: 2px;
+        }
+
+        .dev-switch {
+            color: #8ab4f8;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        /* التذييل */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95a5a6;
+        }
+
+        /* زر الاتصال العائم */
+        .floating-phone {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #2ecc71;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .floating-phone:hover {
+            background-color: #27ae60;
+            transform: scale(1.1);
+        }
+
+        /* مساحة المحتوى الرئيسي */
+        .main-content {
+            margin-top: 40px;
+        }
+
+        /* وسائط الاستجابة */
+        @media (max-width: 768px) {
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .back-to-home {
+                top: 50px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .dev-tools-bar {
+                flex-direction: column;
+                height: auto;
+                padding: 5px;
+            }
+
+            .dev-tools-left,
+            .dev-tools-center,
+            .dev-tools-right {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .icon-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img {
+                height: 200px;
+            }
+
+            .image-title {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+
+
+
+
+
+
+        /* زر شجرة التنقل تحت زر الرئيسية */
+        .nav-tree-btn {
+            position: fixed;
+            top: 120px;
+            /* تحت زر الرئيسية */
+            right: 20px;
+            /* نفس مكان زر الرئيسية */
+            background-color: #e74c3c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-tree-btn:hover {
+            background-color: #c0392b;
+            transform: scale(1.1);
+        }
+
+        /* شجرة التنقل */
+        #navTree {
+            display: none;
+            position: fixed;
+            top: 180px;
+            /* تحت زر الشجرة */
+            right: 20px;
+            /* نفس مكان زر الشجرة */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1002;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            direction: rtl;
+        }
+
+        #navTree.active {
+            display: block;
+        }
+
+        #navTree h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        #navTree ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #navTree li {
+            margin-bottom: 10px;
+        }
+
+        #navTree a {
+            color: #3498db;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        #navTree a:hover {
+            background-color: #f0f7ff;
+            transform: translateX(-5px);
+        }
+
+        #navTree a i {
+            margin-left: 10px;
+            color: #3498db;
+        }
+
+        /* تجاوبية */
+        @media (max-width: 768px) {
+            .nav-tree-btn {
+                top: 105px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            #navTree {
+                top: 160px;
+                right: 15px;
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #navTree {
+                width: 90%;
+                right: 5%;
+                left: 5%;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        /* أنيميشن للخلفية المتغيرة */
+        @keyframes slideChange {
+            0% {
+                opacity: 0;
+            }
+
+            33% {
+                opacity: 0.15;
+            }
+
+            66% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" href="img/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/LOGO.PNG">
+    <meta name="author" content="مؤسسة القاسم">
+
+    <meta name="keywords" content="ساندوتش بانل, مظلات, سواتر, الرياض, مقاولات, غرف معزولة, برجولات">
+</head>
+
+<body>
+
+
+    <!-- زر العودة للرئيسية -->
+    <a href="index.html" class="back-to-home" title="العودة للصفحة الرئيسية">
+        <i class="fas fa-home"></i>
+    </a>
+
+
+
+
+    <!-- زر شجرة التنقل (تحت زر الرئيسية) -->
+    <button class="nav-tree-btn" id="navTreeToggle" title="قائمة الخدمات">
+        <i class="fas fa-sitemap"></i>
+    </button>
+
+
+
+
+    <!-- شجرة التنقل -->
+    <div id="navTree">
+        <h3><i class="fas fa-project-diagram"></i> قائمة الخدمات</h3>
+        <ul>
+
+
+            <li><a href="barjolat.html"><i class="fas fa-cube"></i> برجولات</a></li>
+            <li><a href="mgls.html"><i class="fas fa-couch"></i> مجالس</a></li>
+            <li><a href="pyot_shar_malakya.html"><i class="fas fa-paint-roller"></i> بيوت شعر </a></li>
+            <li><a href="abwab_haded.html"><i class="fas fa-door-closed"></i> أبواب حديد</a></li>
+            <li><a href="shbok.html"><i class="fas fa-grip-lines"></i> شبوك</a></li>
+            <li><a href="grmed.html"><i class="fas fa-warehouse"></i> قرميد</a></li>
+            <li><a href="my_informatoin.html"><i class="fas fa-user-tie"></i> المطورون</a></li>
+        </ul>
+    </div>
+
+
+
+    <!-- شعار الشركة في الرأس -->
+
+
+
+
+    <div id="header-slider" style="
+position: relative;
+padding: 30px 20px;
+text-align: center;
+margin-bottom: 30px;
+border-radius: 0 0 15px 15px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+overflow: hidden;
+min-height: 200px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+">
+
+        <!-- صور الخلفية المتغيرة المباشرة -->
+        <div class="header-bg-slider" style="
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    ">
+            <!-- الصورة الأولى -->
+            <div class="header-slide active" style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/tarkep_mathalah10.webp');
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
+        "></div>
+
+            <!-- الصورة الثانية -->
+            <div class="header-slide" style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/tarkep_mathalah11.webp');
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        "></div>
+
+            <!-- الصورة الثالثة -->
+            <div class="header-slide" style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/tarkep_mathalah12.webp');
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        "></div>
+        </div>
+
+        <!-- طبقة داكنة خفيفة فوق الصور لتحسين وضوح النص -->
+        <div style="
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 0, 0, 0.4);
+    z-index: 1;
+    "></div>
+
+        <!-- محتوى الشعار (فوق الخلفية) -->
+        <div style="position: relative; z-index: 2;">
+            <img src="img/logo.webp" alt="شعار شركة القاسم" style="
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+        ">
+
+            <h2 style="
+            color: white;
+            margin: 10px 0 5px 0;
+            font-size: 28px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        ">
+                مظلات وسواتر مؤسسة القاسم
+            </h2>
+
+            <p style="
+            color: #000000;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0 0 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        ">
+                <i class="fas fa-star" style="margin-left: 8px;"></i>
+                خبرة واسعة في جميع الاعمال
+                <i class="fas fa-star" style="margin-right: 8px;"></i>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content">
+
+
+        <!-- العنوان الرئيسي -->
+        <h1>صور تركيب مضلات مؤسسة القاسم</h1>
+
+        <div style="text-align: center; margin: 20px 0; color: #7f8c8d;">
+            <p> 2026</p>
+        </div>
+
+        <!-- معرض الصور -->
+        <!-- معرض الصور -->
+        <section class="gallery-section">
+            <h2>معرض صور تركيب مضلات</h2>
+
+            <div class="gallery-grid">
+                <!-- الصورة 1 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah1.webp" alt="تركيب مظلات شركة القاسم">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">1</div>
+                </div>
+                <div class="article-content">
+                    <h3>تركيب مظلات شركة القاسم - الخبرة والاحترافية في كل تفصيلة</h3>
+                    <p>تعتبر شركة القاسم من الشركات الرائدة في مجال تركيب المظلات في المملكة العربية السعودية، حيث نمتلك
+                        خبرة تزيد عن 15 عاماً في تصميم وتنفيذ جميع أنواع المظلات السكنية والتجارية. نحن نستخدم أحدث
+                        التقنيات ومواد عالية الجودة لضمان مظلات تدوم لسنوات طويلة وتقاوم مختلف الظروف الجوية القاسية.
+                        فريق العمل لدينا مدرب على أعلى المستويات ويتمتع بخبرة واسعة في تركيب المظلات بجميع أنواعها
+                        وأشكالها.</p>
+                    <p>نقدم لعملائنا مجموعة متنوعة من خيارات المظلات تشمل المظلات القماشية، المظلات الزجاجية، المظلات
+                        المتحركة، والمظلات الإنشائية. كل مشروع ننفذه يحظى بدراسة دقيقة تأخذ في الاعتبار عوامل الأمان،
+                        الجمالية، والوظيفية. نضمن لكم أسعاراً تنافسية وجودة لا مثيل لها، مع ضمان ممتد على جميع أعمال
+                        التركيب والمواد المستخدمة.</p>
+                </div>
+
+                <!-- الصورة 2 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah2.webp" alt="مظلات شركة القاسم">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">2</div>
+                </div>
+                <div class="article-content">
+                    <h3>مظلات شركة القاسم - حماية وأناقة لمختلف المساحات</h3>
+                    <p>تقدم شركة القاسم تشكيلة واسعة من المظلات المصممة خصيصاً لحماية المساحات الخارجية مع إضافة لمسة
+                        جمالية رائعة. سواء كنت بحاجة إلى مظلات للمنازل، الفلل، المطاعم، المقاهي، أو المؤسسات التجارية،
+                        لدينا الحل الأمثل الذي يناسب احتياجاتك وميزانيتك. نستخدم مواد عالية الجودة مقاومة للأشعة فوق
+                        البنفسجية والتآكل، مما يضمن عمراً طويلاً للمظلات حتى في المناطق الساحلية.</p>
+                    <p>نولي اهتماماً كبيراً لتفاصيل التصميم والتركيب، بدءاً من اختيار الألوان والمواد المناسبة ومروراً
+                        بالحسابات الإنشائية الدقيقة وانتهاءً بعملية التركيب المحترفة. نقدم استشارات مجانية للعملاء
+                        لمساعدتهم في اختيار النوع المناسب من المظلات بناءً على مساحة الموقع، اتجاه الشمس، والاستخدام
+                        المطلوب. فريقنا متواجد دائماً لتقديم الدعم الفني وخدمة ما بعد البيع.</p>
+                </div>
+
+                <!-- الصورة 3 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah3.webp" alt="تركيب مظلات بجميع انواعها">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">3</div>
+                </div>
+                <div class="article-content">
+                    <h3>تركيب جميع أنواع المظلات - حلول متكاملة لجميع الاحتياجات</h3>
+                    <p>تتميز شركة القاسم بقدرتها على تركيب جميع أنواع المظلات، من المظلات التقليدية إلى المظلات الذكية
+                        المتطورة. نقدم تشكيلة شاملة تشمل: مظلات القماش المقاوم للماء، المظلات الزجاجية المصلبة، المظلات
+                        المتحركة الكهربائية، المظلات الإنشائية الفولاذية، والمظلات الخشبية الفاخرة. كل نوع من هذه
+                        المظلات يتميز بمزايا خاصة تجعله مناسباً لاستخدامات معينة.</p>
+                    <p>نستخدم في تركيب المظلات مواد مستوردة من أفضل المصانع العالمية، مع التركيز على الجودة والمتانة.
+                        عملية التركيب تتم بواسطة فريق فني متخصص يمتلك الخبرة الكافية للتعامل مع جميع التحديات الفنية.
+                        نضمن لكم تركيباً سليماً وآمناً يتوافق مع المعايير الفنية والإنشائية المطلوبة. كما نقدم ضماناً
+                        شاملاً على المواد والعمالة.</p>
+                </div>
+
+                <!-- الصورة 4 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah4.webp" alt="تركيب مظلات خارجية">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">4</div>
+                </div>
+                <div class="article-content">
+                    <h3>تركيب مظلات خارجية - حماية فعالة من الشمس والمطر</h3>
+                    <p>المظلات الخارجية من شركة القاسم توفر حماية فعالة من أشعة الشمس الحارة والأمطار، مع تحويل المساحات
+                        الخارجية إلى أماكن مريحة وجذابة للاستخدام على مدار السنة. نستخدم في تصنيع المظلات الخارجية مواد
+                        مقاومة للعوامل الجوية مثل القماش الأكريليك المقاوم للأشعة فوق البنفسجية، والهياكل المصنوعة من
+                        الألمنيوم المجلفن أو الفولاذ المقاوم للصدأ.</p>
+                    <p>تصاميمنا للمظلات الخارجية تجمع بين الوظيفية والجمالية، مع إمكانية تخصيص الألوان والقياسات حسب
+                        رغبة العميل. نراعي في تصميم المظلات الخارجية عوامل الرياح والأمطار، مع أنظمة تصريف مياه متطورة
+                        تمنع تجمع المياه وتضمن جفاف المنطقة أسفل المظلة. خبرتنا في تركيب المظلات الخارجية جعلتنا الخيار
+                        الأول للعديد من العملاء في مختلف مناطق المملكة.</p>
+                </div>
+
+                <!-- الصورة 5 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah5.webp" alt="تركيب جميع انواع المظلات">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">5</div>
+                </div>
+                <div class="article-content">
+                    <h3>تركيب جميع أنواع المظلات - خبرة متخصصة في كل نوع</h3>
+                    <p>شركة القاسم تمتلك الخبرة المتخصصة في تركيب جميع أنواع المظلات السكنية والتجارية. من بين أنواع
+                        المظلات التي نقدمها: المظلات القماشية التقليدية، المظلات الزجاجية الشفافة، المظلات المتحركة
+                        الآلية، المظلات الإنشائية الضخمة، ومظلات الحدائق والمسابح. كل نوع من هذه المظلات يتطلب تقنيات
+                        تركيب مختلفة، وفريقنا الفني مدرب على إتقان جميع هذه التقنيات.</p>
+                    <p>نقدم دراسة مجانية لكل مشروع لتحديد النوع المناسب من المظلات بناءً على عدة عوامل تشمل: المساحة
+                        المتاحة، اتجاه الشمس والرياح، الميزانية المتاحة، والاستخدام المطلوب. نستخدم برامج تصميم متطورة
+                        تتيح للعميل رؤية التصميم النهائي قبل البدء في التركيب. جودة عملنا وشهادات ثقة عملائنا هي أفضل
+                        دليل على احترافيتنا في مجال تركيب المظلات.</p>
+                </div>
+
+                <!-- الصورة 6 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah6.webp" alt="مؤسسة القاسم لتركيب المظلات">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">6</div>
+                </div>
+                <div class="article-content">
+                    <h3>مؤسسة القاسم لتركيب المظلات - ثقة منذ أكثر من 15 عاماً</h3>
+                    <p>تعتبر مؤسسة القاسم من المؤسسات الموثوقة في مجال تركيب المظلات في المملكة العربية السعودية، حيث
+                        نعمل منذ أكثر من 15 عاماً على تقديم خدمات عالية الجودة لعملائنا الكرام. خلال هذه السنوات، قمنا
+                        بتنفيذ آلاف المشاريع الناجحة في مختلف مناطق المملكة، واكتسبنا سمعة طيبة تعكس التزامنا بالجودة
+                        والاحترافية.</p>
+                    <p>نحرص على بناء علاقات طويلة الأمد مع عملائنا من خلال تقديم خدمة مميزة قبل وبعد التركيب. فريق عملنا
+                        يتكون من مهندسين وفنيين متخصصين في مجال المظلات، مع تدريب مستمر لمواكبة أحدث التطورات التقنية.
+                        نقدم ضماناً شاملاً على جميع أعمالنا، مع متابعة دورية لضمان رضا العميل التام عن الخدمة المقدمة.
+                    </p>
+                </div>
+
+                <!-- الصورة 7 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah7.webp" alt="مظلات القاسم الشهيرة">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">7</div>
+                </div>
+                <div class="article-content">
+                    <h3>مظلات القاسم الشهيرة - جودة تجعلنا الأفضل في السوق</h3>
+                    <p>مظلات القاسم الشهيرة أصبحت علامة مسجلة للجودة والاحترافية في سوق المظلات السعودي. ما يميز مظلاتنا
+                        هو الاهتمام بالتفاصيل الدقيقة، من اختيار المواد الأولية حتى التشطيبات النهائية. نستخدم في تصنيع
+                        مظلاتنا مواد مستوردة من أشهر المصانع العالمية، مع معالجات خاصة تجعلها مقاومة للعوامل الجوية
+                        القاسية في المملكة.</p>
+                    <p>نقدم تشكيلة واسعة من الألوان والتصاميم تناسب مختلف الأذواق والاحتياجات. من المظلات الكلاسيكية
+                        البسيطة إلى التصاميم الحديثة المعقدة، لدينا الحل المناسب لكل عميل. سمعتنا الطيبة التي بنيناها
+                        على مدى السنوات الماضية تعكس التزامنا بتقديم أفضل خدمة ممكنة بأفضل الأسعار المنافسة في السوق.
+                    </p>
+                </div>
+
+                <!-- الصورة 8 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah8.webp" alt="شركة القاسم لتركيب جميع انواع المظلات">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">8</div>
+                </div>
+                <div class="article-content">
+                    <h3>شركة القاسم لتركيب جميع أنواع المظلات - شريكك الموثوق</h3>
+                    <p>شركة القاسم هي الشريك الموثوق لتركيب جميع أنواع المظلات السكنية والتجارية والصناعية. نحن لا نقدم
+                        خدمة تركيب المظلات فقط، بل نقدم حلولاً متكاملة تشمل: الدراسة والتصميم، التصنيع، التركيب،
+                        والصيانة. خبرتنا الواسعة في التعامل مع مختلف أنواع المشاريع جعلتنا نتمكن من تقديم حلول مبتكرة
+                        تناسب جميع التحديات.</p>
+                    <p>نستخدم في أعمالنا أحدث المعدات والتقنيات، مع التركيز على سلامة وجودة العمل. فريقنا الفني مدرب على
+                        التعامل مع جميع أنواع المظلات وتقنيات التركيب المختلفة. نقدم ضماناً على المواد والعمالة، مع خدمة
+                        صيانة دورية لضمان استمرارية أداء المظلات على المدى الطويل. ثقة عملائنا هي رأس مالنا الحقيقي.</p>
+                </div>
+
+                <!-- الصورة 9 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah9.webp" alt="مؤسسة القاسم لتركيب الظلات بانواعها">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">9</div>
+                </div>
+                <div class="article-content">
+                    <h3>مؤسسة القاسم لتركيب المظلات بأنواعها - خبرة تمتد لأكثر من عقد</h3>
+                    <p>تمتلك مؤسسة القاسم خبرة تمتد لأكثر من عقد من الزمن في مجال تركيب المظلات بأنواعها المختلفة. خلال
+                        هذه الفترة، قمنا بتنفيذ مشاريع في مختلف القطاعات: السكنية، التجارية، الصناعية، والحكومية. كل
+                        مشروع ننفذه يحظى بدراسة متكاملة تأخذ في الاعتبار جميع العوامل المؤثرة على أداء المظلة.</p>
+                    <p>نستخدم في أعمالنا مواد عالية الجودة تخضع لاختبارات صارمة قبل الاستخدام. عملية التركيب تتم وفق
+                        معايير فنية دقيقة تضمن ثبات المظلة ومقاومتها للرياح والأمطار. نقدم استشارات مجانية للعملاء
+                        لمساعدتهم في اختيار النوع المناسب من المظلات بناءً على احتياجاتهم وميزانيتهم. جودة عملنا تتحدث
+                        عن نفسها من خلال مشاريعنا الناجحة.</p>
+                </div>
+
+                <!-- الصورة 10 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah10.webp" alt="تركيب مظلات">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">10</div>
+                </div>
+                <div class="article-content">
+                    <h3>تركيب مظلات - خدمة شاملة من التصميم إلى التركيب</h3>
+                    <p>تقدم شركة القاسم خدمة شاملة لتركيب المظلات تبدأ من التصميم وتنتهي بالتركيب النهائي. نحن نؤمن بأن
+                        نجاح أي مشروع للمظلات يعتمد على التخطيط الجيد والتنفيذ الدقيق. لذلك نبدأ كل مشروع بدراسة ميدانية
+                        شاملة تشمل: قياس المساحة، دراسة اتجاه الشمس والرياح، وتحديد أفضل موقع للتركيب.</p>
+                    <p>نستخدم برامج تصميم متطورة تتيح للعميل رؤية التصميم النهائي ثلاثي الأبعاد قبل البدء في التصنيع.
+                        عملية التركيب تتم بواسطة فريق فني متخصص يمتلك الخبرة الكافية للتعامل مع جميع التحديات الفنية.
+                        نضمن لكم تركيباً سليماً وآمناً يتوافق مع المعايير الفنية والإنشائية المطلوبة. جودة عملنا تجعلنا
+                        الخيار الأول للعديد من العملاء.</p>
+                </div>
+
+                <!-- الصورة 11 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah11.webp" alt="مظلات شركة القاسم">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">11</div>
+                </div>
+                <div class="article-content">
+                    <h3>مظلات شركة القاسم - جودة عالمية بأسعار تنافسية</h3>
+                    <p>تتميز مظلات شركة القاسم بجودة عالمية تنافس أفضل المنتجات في السوق الدولية، مع الحفاظ على أسعار
+                        تنافسية تناسب مختلف الميزانيات. نحن نستخدم مواد مستوردة من أشهر المصانع العالمية، مع تقنيات
+                        تصنيع متطورة تجعل مظلاتنا تتحمل الظروف الجوية القاسية في المملكة العربية السعودية.</p>
+                    <p>نقدم لعملائنا مجموعة متنوعة من الخيارات تشمل: المظلات القماشية المقاومة للماء، المظلات الزجاجية
+                        المصلبة، المظلات المتحركة الكهربائية، والمظلات الإنشائية الفولاذية. كل نوع من هذه المظلات يتميز
+                        بمزايا خاصة تجعله مناسباً لاستخدامات معينة. فريقنا متواجد دائماً لتقديم النصيحة المناسبة لكل
+                        عميل بناءً على احتياجاته.</p>
+                </div>
+
+                <!-- الصورة 12 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah12.webp" alt="مظلات القاسم">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">12</div>
+                </div>
+                <div class="article-content">
+                    <h3>مظلات القاسم - علامة مسجلة للجودة والثقة</h3>
+                    <p>أصبحت مظلات القاسم علامة مسجلة للجودة والثقة في سوق المظلات السعودي. ما يميز مظلاتنا هو الاهتمام
+                        بالتفاصيل الدقيقة ومراعاة أعلى معايير الجودة في كل مرحلة من مراحل التصنيع والتركيب. نستخدم في
+                        تصنيع مظلاتنا مواد عالية الجودة تخضع لاختبارات صارمة قبل الاستخدام، مع معالجات خاصة تجعلها
+                        مقاومة للتآكل والصدأ.</p>
+                    <p>نقدم تشكيلة واسعة من الألوان والتصاميم تناسب مختلف الأذواق والمتطلبات. من المظلات الكلاسيكية
+                        البسيطة إلى التصاميم الحديثة المعقدة، لدينا الحل المناسب لكل عميل. سمعتنا الطيبة التي بنيناها
+                        على مدى السنوات الماضية تعكس التزامنا بتقديم أفضل خدمة ممكنة بأفضل الأسعار المنافسة في السوق.
+                    </p>
+                </div>
+
+                <!-- الصورة 13 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah13.webp" alt="تركيب مظلات عالية الجودة">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">13</div>
+                </div>
+                <div class="article-content">
+                    <h3>تركيب مظلات عالية الجودة - معايير صارمة تضمن التميز</h3>
+                    <p>تتميز شركة القاسم بتركيب مظلات عالية الجودة تخضع لمعايير صارمة تضمن التميز في الأداء والمظهر.
+                        نستخدم في أعمالنا مواد مستوردة من أفضل المصانع العالمية، مع تقنيات تصنيع متطورة تجعل مظلاتنا
+                        تتحمل الظروف الجوية القاسية في المملكة العربية السعودية. كل مظلة ننتجها تخضع لمراقبة جودة دقيقة
+                        في كل مرحلة من مراحل التصنيع.</p>
+                    <p>نقدم لعملائنا مجموعة متنوعة من الخيارات تشمل: المظلات القماشية المقاومة للماء، المظلات الزجاجية
+                        المصلبة، المظلات المتحركة الكهربائية، والمظلات الإنشائية الفولاذية. كل نوع من هذه المظلات يتميز
+                        بمزايا خاصة تجعله مناسباً لاستخدامات معينة. فريقنا متواجد دائماً لتقديم النصيحة المناسبة لكل
+                        عميل بناءً على احتياجاته.</p>
+                </div>
+
+                <!-- الصورة 14 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah14.webp" alt="مظلات القاسم">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">14</div>
+                </div>
+                <div class="article-content">
+                    <h3>مظلات القاسم - خبرة 15 عاماً في التميز</h3>
+                    <p>تمتلك شركة القاسم خبرة تزيد عن 15 عاماً في مجال تصنيع وتركيب المظلات، مما جعلها من الشركات
+                        الرائدة في هذا المجال في المملكة العربية السعودية. خلال هذه السنوات، قمنا بتنفيذ آلاف المشاريع
+                        الناجحة في مختلف مناطق المملكة، واكتسبنا سمعة طيبة تعكس التزامنا بالجودة والاحترافية.</p>
+                    <p>نستخدم في أعمالنا أحدث المعدات والتقنيات، مع التركيز على سلامة وجودة العمل. فريقنا الفني مدرب على
+                        التعامل مع جميع أنواع المظلات وتقنيات التركيب المختلفة. نقدم ضماناً على المواد والعمالة، مع خدمة
+                        صيانة دورية لضمان استمرارية أداء المظلات على المدى الطويل. ثقة عملائنا هي رأس مالنا الحقيقي.</p>
+                </div>
+
+                <!-- الصورة 15 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah15.webp" alt="اسعار تركيب المظلات">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">15</div>
+                </div>
+                <div class="article-content">
+                    <h3>أسعار تركيب المظلات - عروض تنافسية مع الحفاظ على الجودة</h3>
+                    <p>تقدم شركة القاسم أسعاراً تنافسية لتركيب المظلات مع الحفاظ على أعلى معايير الجودة والاحترافية. نحن
+                        نؤمن بأن الجودة العالية لا يجب أن تكون باهظة الثمن، لذلك نعمل على تقديم أفضل الأسعار المنافسة في
+                        السوق دون المساس بجودة المواد أو العمالة. نقدم دراسة مجانية لكل مشروع مع تقديم عرض سعر مفصل يشمل
+                        جميع التكاليف بدون أي مفاجآت لاحقة.</p>
+                    <p>تختلف أسعار تركيب المظلات بناءً على عدة عوامل تشمل: نوع المظلة، المساحة المطلوبة، المواد
+                        المستخدمة، وتعقيد التصميم. نقدم لعملائنا عروضاً خاصة للطلبات الكبيرة والمشاريع المتكررة، مع
+                        خصومات على الصيانة الدورية. شفافيتنا في التسعير وعدم وجود تكاليف خفية جعلتنا الخيار المفضل
+                        للعديد من العملاء.</p>
+                </div>
+
+                <!-- الصورة 16 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah16.webp" alt="انواع المظلات عند شركة القاسم">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">16</div>
+                </div>
+                <div class="article-content">
+                    <h3>أنواع المظلات عند شركة القاسم - تشكيلة واسعة تناسب جميع الاحتياجات</h3>
+                    <p>تقدم شركة القاسم تشكيلة واسعة من أنواع المظلات تناسب جميع الاحتياجات السكنية والتجارية والصناعية.
+                        من بين أنواع المظلات التي نقدمها: المظلات القماشية التقليدية، المظلات الزجاجية الشفافة، المظلات
+                        المتحركة الآلية، المظلات الإنشائية الضخمة، مظلات المسابح والحدائق، والمظلات المخصصة للمطاعم
+                        والمقاهي. كل نوع من هذه المظلات يتميز بمزايا خاصة تجعله مناسباً لاستخدامات معينة.</p>
+                    <p>نقدم استشارات مجانية للعملاء لمساعدتهم في اختيار النوع المناسب من المظلات بناءً على عدة عوامل
+                        تشمل: المساحة المتاحة، اتجاه الشمس والرياح، الميزانية المتاحة، والاستخدام المطلوب. نستخدم برامج
+                        تصميم متطورة تتيح للعميل رؤية التصميم النهائي قبل البدء في التركيب. جودة عملنا وشهادات ثقة
+                        عملائنا هي أفضل دليل على احترافيتنا في مجال تركيب المظلات.</p>
+                </div>
+
+                <!-- الصورة 17 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah17.webp" alt="القاسم لتركيب المظلات">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">17</div>
+                </div>
+                <div class="article-content">
+                    <h3>القاسم لتركيب المظلات - خبرة تميزنا عن الآخرين</h3>
+                    <p>تتميز شركة القاسم بخبرة واسعة في مجال تركيب المظلات تجعلها تتفوق على المنافسين في السوق السعودي.
+                        خلال أكثر من 15 عاماً من العمل، طورنا تقنيات تركيب متطورة وطوّرنا فريق عمل متخصص قادر على
+                        التعامل مع جميع التحديات الفنية. ما يميزنا هو الاهتمام بالتفاصيل الدقيقة ومراعاة أعلى معايير
+                        الجودة في كل مشروع ننفذه.</p>
+                    <p>نستخدم في أعمالنا مواد عالية الجودة مستوردة من أفضل المصانع العالمية، مع تقنيات تصنيع وتركيب
+                        متطورة. عملية التركيب تتم وفق معايير فنية دقيقة تضمن ثبات المظلة ومقاومتها للرياح والأمطار. نقدم
+                        ضماناً شاملاً على جميع أعمالنا، مع خدمة صيانة دورية لضمان استمرارية أداء المظلات على المدى
+                        الطويل. جودة عملنا تجعلنا الخيار الأول للعديد من العملاء.</p>
+                </div>
+
+                <!-- الصورة 18 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah18.webp" alt="تركيب مظلات بجميع انواعها">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">18</div>
+                </div>
+                <div class="article-content">
+                    <h3>تركيب مظلات بجميع أنواعها - حلول متكاملة لجميع المتطلبات</h3>
+                    <p>تقدم شركة القاسم حلولاً متكاملة لتركيب مظلات بجميع أنواعها، من المظلات البسيطة إلى الأنظمة
+                        المعقدة. نحن نغطي جميع الاحتياجات السكنية والتجارية والصناعية، مع القدرة على تخصيص التصاميم حسب
+                        متطلبات العميل. خبرتنا الواسعة في التعامل مع مختلف أنواع المشاريع جعلتنا نتمكن من تقديم حلول
+                        مبتكرة تناسب جميع التحديات.</p>
+                    <p>نستخدم في أعمالنا أحدث المعدات والتقنيات، مع التركيز على سلامة وجودة العمل. فريقنا الفني مدرب على
+                        التعامل مع جميع أنواع المظلات وتقنيات التركيب المختلفة. نقدم ضماناً على المواد والعمالة، مع خدمة
+                        صيانة دورية لضمان استمرارية أداء المظلات على المدى الطويل. ثقة عملائنا هي رأس مالنا الحقيقي.</p>
+                </div>
+
+                <!-- الصورة 19 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah19.webp" alt="تركيب مظلات عالية المستوى">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">19</div>
+                </div>
+                <div class="article-content">
+                    <h3>تركيب مظلات عالية المستوى - لمسة فاخرة تضيف قيمة للمكان</h3>
+                    <p>تقدم شركة القاسم خدمة تركيب مظلات عالية المستوى تضيف لمسة فاخرة وقيمة جمالية للمكان. نستخدم في
+                        تصنيع هذه المظلات مواد فاخرة مستوردة من أوروبا وأمريكا، مع تصميمات مبتكرة تجمع بين الأناقة
+                        والوظيفية. مظلاتنا الفاخرة مناسبة للفلل الفاخرة، الفنادق، المطاعم الراقية، والشركات الكبرى التي
+                        تبحث عن التميز في كل تفصيلة.</p>
+                    <p>نقدم تشكيلة حصرية من المظلات الفاخرة تشمل: المظلات الزجاجية المصلبة المقاومة للكسر، المظلات
+                        المتحركة الكهربائية بأنظمة تحكم ذكية، المظلات الإنشائية بتصميمات معمارية مبتكرة، والمظلات
+                        القماشية بأقمشة إيطالية فاخرة. كل مظلة فاخرة ننتجها تخضع لمراقبة جودة دقيقة في كل مرحلة من مراحل
+                        التصنيع والتركيب.</p>
+                </div>
+
+                <!-- الصورة 20 -->
+                <div class="gallery-item">
+                    <img src="img/tarkep_mathalah20.webp" alt="شركة القاسم لتركيب وتوريد المظلات بجميع انواعها">
+                    <div class="image-icons">
+                        <button class="icon-btn phone" onclick="callNumber('+966532228615')" title="اتصل">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="icon-btn whatsapp" onclick="whatsappMessage('+966532228615')" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                    <div class="image-title">20</div>
+                </div>
+                <div class="article-content">
+                    <h3>شركة القاسم لتركيب وتوريد المظلات بجميع أنواعها - شريكك المتكامل</h3>
+                    <p>شركة القاسم هي الشريك المتكامل لتركيب وتوريد المظلات بجميع أنواعها في المملكة العربية السعودية.
+                        نحن لا نقدم خدمة التركيب فقط، بل نقدم حلاً متكاملاً يشمل: الدراسة والتصميم، التصنيع، التوريد،
+                        التركيب، والصيانة. خبرتنا الواسعة في التعامل مع مختلف أنواع المشاريع جعلتنا نتمكن من تقديم حلول
+                        مبتكرة تناسب جميع التحديات.</p>
+                    <p>نستخدم في أعمالنا أحدث المعدات والتقنيات، مع التركيز على سلامة وجودة العمل. فريقنا الفني مدرب على
+                        التعامل مع جميع أنواع المظلات وتقنيات التركيب المختلفة. نقدم ضماناً على المواد والعمالة، مع خدمة
+                        صيانة دورية لضمان استمرارية أداء المظلات على المدى الطويل. ثقة عملائنا هي رأس مالنا الحقيقي،
+                        لذلك نضعها نصب أعيننا في كل خطوة نخطوها.</p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <style>
+                /* تنسيقات المقالات الجديدة */
+                .article-content {
+                    background-color: #ffffff;
+                    padding: 25px;
+                    margin: 15px 0 40px 0;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+                    border-right: 4px solid #3498db;
+                    border-left: 4px solid #3498db;
+                    text-align: right;
+                    direction: rtl;
+                }
+
+                .article-content h3 {
+                    color: #2c3e50;
+                    font-size: 1.8rem;
+                    margin-bottom: 15px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #f1f1f1;
+                    text-align: right;
+                }
+
+                .article-content p {
+                    color: #34495e;
+                    font-size: 1.1rem;
+                    line-height: 1.8;
+                    margin-bottom: 15px;
+                    text-align: justify;
+                }
+
+                .article-content p:last-child {
+                    margin-bottom: 0;
+                }
+
+                /* تجاوبية المقالات */
+                @media (max-width: 768px) {
+                    .article-content {
+                        padding: 20px;
+                        margin: 10px 0 30px 0;
+                    }
+
+                    .article-content h3 {
+                        font-size: 1.5rem;
+                    }
+
+                    .article-content p {
+                        font-size: 1rem;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .article-content {
+                        padding: 15px;
+                    }
+
+                    .article-content h3 {
+                        font-size: 1.3rem;
+                    }
+                }
+            </style>
+        </section>
+
+        <!-- التذييل -->
+        <footer>
+            <div class="footer-content">
+                <div
+                    style="margin: 30px 0; padding: 20px; background-color: rgba(255,255,255,0.1); border-radius: 6px;">
+                    <h3 style="color: white; margin-bottom: 20px;">تركيب المضلات: فن حماية المساحات
+                        ☂️ عندما تصبح الحماية تحفة فنية
+
+                        المضلات ليست مجرد أغطية، بل هي أجنحة واقية تمنح المساحات الخارجية شخصية وجمالية. إنها الظل الذكي
+                        الذي يحمي ويجمّل.
+
+                        🌤️ أنواع المضلات الساحرة:
+
+                        مضلات شد إنشائي: تحف هندسية معلقة
+
+                        مضلات متحركة: ذكاء يتكيف مع الطقس
+
+                        مضلات زجاجية: شفافية تلامس السماء
+
+                        مضلات قماشية: ألوان تروي قصص الشمس
+
+                        🎯 فوائد المضلات الذكية:
+
+                        حماية شاملة: من الشمس، المطر، الغبار
+
+                        توفير طاقة: تقليل استخدام المكيفات
+
+                        إطالة عمر: للأثاث والأرضيات
+
+                        زيادة قيمة: للمنشأة والعقار
+
+                        🔧 تكنولوجيا التركيب المتطورة:
+
+                        حسابات إنشائية دقيقة: تضمان الأمان الكامل
+
+                        مواد مقاومة للأشعة UV: تحافظ على الألوان
+
+                        أنظمة تصريف مياه ذكية: بدون تنقيط أو تجمع
+
+                        إطالات متينة: من الألمنيوم المقاوم للصدأ
+
+                        🌈 مع مضلاتنا:
+
+                        تتحول المساحة الخارجية إلى صالة معيشة إضافية
+
+                        يصبح المطر متعة وليس مشكلة
+
+                        تتحول الشمس من عدو إلى مصدر إضاءة ناعم
+
+                        يصبح الفناء امتدادًا حقيقيًا للمنزل
+
+                        🛡️ نحن حماة المساحات الجميلة، لأننا نؤمن أن الجمال يحتاج إلى حماية، والحماية يجب أن تكون جميلة!
+                    </h3>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <p style="font-size: 1.5rem; margin: 10px 0;">+966 53 222 8615</p>
+                        <p style="font-size: 1.5rem; margin: 10px 0;">اتصل الان</p>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>مؤسسة القاسم ترحب بكم </p>
+                    <p style="margin-top: 10px; font-size: 1.2rem;"></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- زر الاتصال العائم -->
+    <a href="tel:+966532228615" class="floating-phone">
+        <i class="fas fa-phone"></i>
+    </a>
+
+
+
+
+
+
+
+    <!-- زر واتساب عائم -->
+    <div style="
+  position: fixed;
+  bottom: 120px;
+  left: 25px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse-whatsapp 2s infinite;
+" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 20px rgba(37, 211, 102, 0.6)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(37, 211, 102, 0.4)';"
+        onclick="window.open('https://wa.me/966532228615', '_blank');">
+
+        <!-- أيقونة واتساب الأساسية -->
+        <svg style="width: 32px; height: 32px;" viewBox="0 0 24 24">
+            <path fill="white"
+                d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.39-4.19-1.15l-.3-.17l-3.12.82l.83-3.04l-.2-.32a8.188 8.188 0 0 1-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.24M8.53 7.33c-.16 0-.43.06-.66.31c-.22.25-.87.86-.87 2.07c0 1.22.89 2.39 1 2.56c.14.17 1.76 2.67 4.25 3.73c.59.27 1.05.42 1.41.53c.59.19 1.13.16 1.56.1c.48-.07 1.46-.6 1.67-1.18c.21-.58.21-1.07.15-1.18c-.07-.1-.23-.16-.48-.28c-.25-.13-1.46-.72-1.69-.8c-.23-.08-.37-.12-.56.12c-.16.25-.64.81-.78.97c-.15.17-.29.19-.54.07c-.26-.13-1.06-.39-2-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.12-.24-.01-.39.11-.5c.11-.11.27-.29.37-.44c.13-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.11-.56-1.35-.77-1.84c-.2-.48-.4-.42-.56-.43c-.14 0-.3-.01-.47-.01z" />
+        </svg>
+
+    </div>
+
+    <style>
+        @keyframes pulse-whatsapp {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+    <script>
+        // دالة للاتصال بالرقم
+        function callNumber(phoneNumber) {
+            if (confirm(`هل تريد الاتصال بالرقم ${phoneNumber}؟`)) {
+                window.location.href = `tel:${phoneNumber}`;
+            }
+        }
+
+        // دالة لإرسال رسالة واتساب
+        function whatsappMessage(phoneNumber) {
+            const message = "مرحباً، أريد الاستفسار عن     ";
+            const whatsappURL = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // جعل جميع الروابط تعمل
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const pageName = this.textContent;
+                alert(`سيتم توجيهك إلى صفحة: ${pageName}\n\n(سيتم إنشاء هذه الصفحة لاحقاً)`);
+            });
+        });
+
+        // زر الاتصال العائم
+        const floatingPhone = document.querySelector('.floating-phone');
+        floatingPhone.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (confirm('هل تريد الاتصال بالرقم +966532228615؟')) {
+                window.location.href = 'tel:+966532228615';
+            }
+        });
+
+        // زر العودة للرئيسية
+        const backButton = document.querySelector('.back-to-home');
+        backButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            // if (confirm('هل تريد العودة للصفحة الرئيسية؟')) {
+            window.location.href = 'index.html';
+        }
+        );
+
+
+
+
+
+
+
+
+
+
+        // شجرة التنقل
+        const navTreeToggle = document.getElementById('navTreeToggle');
+        const navTree = document.getElementById('navTree');
+
+        if (navTreeToggle && navTree) {
+            navTreeToggle.addEventListener('click', function (e) {
+                e.stopPropagation(); // لمنع الإغلاق الفوري
+                navTree.classList.toggle('active');
+            });
+
+            // إغلاق شجرة التنقل عند النقر خارجها
+            document.addEventListener('click', function (event) {
+                if (navTree.classList.contains('active') &&
+                    !navTree.contains(event.target) &&
+                    !navTreeToggle.contains(event.target)) {
+                    navTree.classList.remove('active');
+                }
+            });
+
+            // إغلاق شجرة التنقل عند النقر على رابط داخلي
+            navTree.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function () {
+                    navTree.classList.remove('active');
+                });
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // كود JavaScript لتبديل الخلفيات
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.header-slide');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            // دالة لتغيير الخلفية
+            function changeBackground() {
+                // إخفاء كل الشرائح
+                slides.forEach(slide => {
+                    slide.style.opacity = '0';
+                });
+
+                // إظهار الشريحة الحالية
+                slides[currentSlide].style.opacity = '0.80';
+
+                // الانتقال للشريحة التالية
+                currentSlide = (currentSlide + 1) % totalSlides;
+            }
+
+            // تغيير الخلفية كل 3 ثواني
+            setInterval(changeBackground, 3000);
+
+            // بدء التبديل فور تحميل الصفحة
+            changeBackground();
+
+            // التأكد من أن الصور موجودة
+            const imageUrls = [
+                'img/tarkep_mathalah12.webp',
+                'img/tarkep_mathalah11.webp',
+                'img/tarkep_mathalah10.webp'
+            ];
+
+            // تحميل مسبق للصور لمنع التأخير
+            imageUrls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        });
+    </script>
+</body>
+
+</html>

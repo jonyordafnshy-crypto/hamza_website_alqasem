@@ -1088,12 +1088,1706 @@
 </head>
 
 <body>
-    <!-- شريط البحث -->
-    <div class="search-container">
-        <button class="search-toggle" id="searchToggle">
-            <i class="fas fa-search"></i>
-        </button>
+    <!-- شريط البحث في الصفحة الرئيسية -->
+
+
+
+
+
+
+    <!-- زر البحث الشامل -->
+    <button class="global-search-btn" id="globalSearchToggle" title="بحث شامل في الموقع">
+        <i class="fas fa-search"></i>
+    </button>
+
+    <!-- نافذة البحث الشامل -->
+    <div id="globalSearchModal" class="global-search-modal">
+        <div class="global-search-container">
+            <div class="global-search-header">
+                <div class="search-title">
+                    <h3><i class="fas fa-search-plus"></i> البحث الشامل في موقع شركة القاسم</h3>
+                    <p class="search-subtitle">ابحث في جميع المقالات، الصور، الخدمات والمحتوى</p>
+                </div>
+                <button class="global-close-search" id="globalCloseSearch" title="إغلاق البحث">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="global-search-input-section">
+                <div class="search-input-wrapper">
+                    <div class="search-icon-input">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="globalSearchInput"
+                            placeholder="مثال: مجالس زجاجية خارجية، مظلات سيارات، تشطيب ملاحق..." autocomplete="off"
+                            autofocus>
+                    </div>
+                    <button id="globalSearchButton" class="global-search-action-btn">
+                        <i class="fas fa-search"></i> بحث شامل
+                    </button>
+                </div>
+
+                <div class="search-options">
+                    <div class="options-title">
+                        <i class="fas fa-filter"></i> خيارات البحث:
+                    </div>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-filter="all">
+                            <i class="fas fa-th"></i> الكل
+                        </button>
+                        <button class="option-btn" data-filter="articles">
+                            <i class="fas fa-newspaper"></i> المقالات
+                        </button>
+                        <button class="option-btn" data-filter="images">
+                            <i class="fas fa-image"></i> الصور
+                        </button>
+                        <button class="option-btn" data-filter="services">
+                            <i class="fas fa-cogs"></i> الخدمات
+                        </button>
+                        <button class="option-btn" data-filter="prices">
+                            <i class="fas fa-tag"></i> الأسعار
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الإحصائيات السريعة -->
+            <div class="search-quick-stats">
+                <div class="stat-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="stat-number">50+</span>
+                    <span class="stat-text">مقالة</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-images"></i>
+                    <span class="stat-number">200+</span>
+                    <span class="stat-text">صورة</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-cogs"></i>
+                    <span class="stat-number">15+</span>
+                    <span class="stat-text">خدمة</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-box"></i>
+                    <span class="stat-number">300+</span>
+                    <span class="stat-text">منتج</span>
+                </div>
+            </div>
+
+            <!-- الاقتراحات الذكية -->
+            <div class="global-search-suggestions">
+                <h4><i class="fas fa-lightbulb"></i> اقتراحات بحث ذكية:</h4>
+                <div class="suggestion-categories">
+                    <div class="category">
+                        <h5><i class="fas fa-couch"></i> المجالس والاستراحات</h5>
+                        <div class="category-tags">
+                            <span class="smart-tag" data-search="مجالس زجاجية خارجية">مجالس زجاجية</span>
+                            <span class="smart-tag" data-search="مجالس جاهزة بتصميم كلاسيكي">مجالس كلاسيكية</span>
+                            <span class="smart-tag" data-search="مجالس مظللة للحدائق">مجالس حدائق</span>
+                            <span class="smart-tag" data-search="مجالس شتوية معزولة">مجالس شتوية</span>
+                            <span class="smart-tag" data-search="أسعار المجالس الجاهزة 2026">أسعار مجالس</span>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h5><i class="fas fa-umbrella-beach"></i> المظلات والسواتر</h5>
+                        <div class="category-tags">
+                            <span class="smart-tag" data-search="مظلات سيارات ساندوتش بانل">مظلات سيارات</span>
+                            <span class="smart-tag" data-search="سواتر حديدية">سواتر</span>
+                            <span class="smart-tag" data-search="برجولات خشبية">برجولات</span>
+                            <span class="smart-tag" data-search="مظلات لكسان مقاومة">مظلات لكسان</span>
+                            <span class="smart-tag" data-search="تركيب أسقف">أسقف</span>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h5><i class="fas fa-home"></i> التشطيب والبناء</h5>
+                        <div class="category-tags">
+                            <span class="smart-tag" data-search="تشطيب ملاحق خارجية">تشطيب ملاحق</span>
+                            <span class="smart-tag" data-search="ملاحق تشطيب شقق">تشطيب شقق</span>
+                            <span class="smart-tag" data-search="مواد بناء فاخرة">مواد بناء</span>
+                            <span class="smart-tag" data-search="عزل حراري للمجالس">عزل حراري</span>
+                            <span class="smart-tag" data-search="تشطيبات اقتصادية">تشطيبات اقتصادية</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نتائج البحث -->
+            <div class="global-search-results" id="globalSearchResults">
+                <div class="results-controls">
+                    <h4><i class="fas fa-search-result"></i> نتائج البحث:</h4>
+                    <div class="results-info">
+                        <span id="globalResultsCount">0 نتيجة</span>
+                        <span class="results-time" id="searchTime">0.0 ثانية</span>
+                    </div>
+                </div>
+
+                <div class="results-filters">
+                    <select id="resultsSort" class="results-sort">
+                        <option value="relevance">الترتيب حسب الأهمية</option>
+                        <option value="newest">الأحدث أولاً</option>
+                        <option value="oldest">الأقدم أولاً</option>
+                        <option value="popular">الأكثر شيوعاً</option>
+                    </select>
+
+                    <button class="filter-toggle" id="filterToggle">
+                        <i class="fas fa-sliders-h"></i> تصفية متقدم
+                    </button>
+                </div>
+
+                <div class="results-list-container" id="globalResultsList">
+                    <!-- سيتم ملء النتائج هنا -->
+                </div>
+
+                <!-- التصفح -->
+                <div class="results-pagination" id="resultsPagination">
+                    <!-- سيتم إنشاء أرقام الصفحات هنا -->
+                </div>
+            </div>
+
+            <!-- البحث المتقدم -->
+            <div class="advanced-search-panel" id="advancedSearchPanel">
+                <h5><i class="fas fa-cogs"></i> البحث المتقدم</h5>
+                <div class="advanced-filters">
+                    <div class="filter-group">
+                        <label><i class="far fa-calendar-alt"></i> التاريخ:</label>
+                        <select id="dateFilter">
+                            <option value="all">كل التاريخ</option>
+                            <option value="week">آخر أسبوع</option>
+                            <option value="month">آخر شهر</option>
+                            <option value="year">آخر سنة</option>
+                            <option value="2026">2026 فقط</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label><i class="fas fa-tags"></i> التصنيف:</label>
+                        <select id="categoryFilter">
+                            <option value="all">كل التصنيفات</option>
+                            <option value="mgls">مجالس واستراحات</option>
+                            <option value="mathalat">مظلات وسواتر</option>
+                            <option value="tashtib">تشطيب وبناء</option>
+                            <option value="doors">أبواب وشبوك</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label><i class="fas fa-file-alt"></i> النوع:</label>
+                        <div class="type-checkboxes">
+                            <label><input type="checkbox" name="contentType" value="article" checked> مقالات</label>
+                            <label><input type="checkbox" name="contentType" value="image" checked> صور</label>
+                            <label><input type="checkbox" name="contentType" value="product" checked> منتجات</label>
+                            <label><input type="checkbox" name="contentType" value="service" checked> خدمات</label>
+                        </div>
+                    </div>
+
+                    <button class="apply-filters-btn" id="applyFilters">
+                        <i class="fas fa-check"></i> تطبيق الفلاتر
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <style>
+        /* زر البحث الشامل */
+        .global-search-btn {
+            position: fixed;
+            top: 240px;
+            right: 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            z-index: 1001;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            animation: pulse-global-search 3s infinite;
+        }
+
+        .global-search-btn:hover {
+            background: linear-gradient(135deg, #2980b9, #1f618d);
+            transform: scale(1.15) rotate(15deg);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
+        }
+
+        @keyframes pulse-global-search {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 4px 20px rgba(52, 152, 219, 0.6), 0 0 30px rgba(52, 152, 219, 0.4);
+            }
+        }
+
+        /* نافذة البحث الشامل */
+        .global-search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            animation: fadeInGlobal 0.4s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .global-search-modal.active {
+            display: block;
+        }
+
+        @keyframes fadeInGlobal {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .global-search-container {
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUpGlobal 0.5s ease;
+            overflow: hidden;
+        }
+
+        @keyframes slideUpGlobal {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* الهيدر */
+        .global-search-header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 25px 30px;
+            position: relative;
+        }
+
+        .search-title h3 {
+            color: white;
+            margin: 0 0 8px 0;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .global-close-search {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+
+        .global-close-search:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: rotate(90deg);
+        }
+
+        /* قسم الإدخال */
+        .global-search-input-section {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .search-icon-input {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-icon-input i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+            font-size: 18px;
+        }
+
+        #globalSearchInput {
+            width: 100%;
+            padding: 18px 60px 18px 20px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            outline: none;
+            background: white;
+        }
+
+        #globalSearchInput:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+        }
+
+        .global-search-action-btn {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 0 35px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            min-width: 140px;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .global-search-action-btn:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        /* خيارات البحث */
+        .search-options {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .options-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .option-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .option-btn {
+            background: #f8f9fa;
+            color: #495057;
+            border: 2px solid #dee2e6;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .option-btn:hover {
+            border-color: #3498db;
+            color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .option-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.2);
+        }
+
+        /* الإحصائيات السريعة */
+        .search-quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            padding: 25px 30px;
+            background: white;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: #e9ecef;
+            transform: translateY(-3px);
+        }
+
+        .stat-item i {
+            font-size: 24px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .stat-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        /* الاقتراحات الذكية */
+        .global-search-suggestions {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .global-search-suggestions h4 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+        }
+
+        .suggestion-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .category {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .category:hover {
+            border-color: #3498db;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .category h5 {
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .smart-tag {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border: 1px solid #bbdefb;
+        }
+
+        .smart-tag:hover {
+            background: #1565c0;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(21, 101, 192, 0.2);
+        }
+
+        /* نتائج البحث */
+        .global-search-results {
+            padding: 30px;
+        }
+
+        .results-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .results-controls h4 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .results-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #globalResultsCount {
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .results-time {
+            color: #6c757d;
+            font-size: 0.9rem;
+            background: #f8f9fa;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .results-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .results-sort {
+            padding: 10px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            background: white;
+            color: #495057;
+            font-size: 0.95rem;
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .filter-toggle {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-toggle:hover {
+            background: #545b62;
+            transform: translateY(-2px);
+        }
+
+        .results-list-container {
+            min-height: 300px;
+            max-height: 500px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        /* أنماط نتائج البحث */
+        .result-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .result-card:hover {
+            border-color: #3498db;
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .result-card.article {
+            border-right: 4px solid #3498db;
+        }
+
+        .result-card.image {
+            border-right: 4px solid #2ecc71;
+        }
+
+        .result-card.product {
+            border-right: 4px solid #e74c3c;
+        }
+
+        .result-card.service {
+            border-right: 4px solid #9b59b6;
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .result-type {
+            background: #ecf0f1;
+            color: #7f8c8d;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .result-title {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .result-content {
+            color: #495057;
+            line-height: 1.6;
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+
+        .result-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+
+        .result-source {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .result-highlight {
+            background: #fff3cd;
+            color: #856404;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* البحث المتقدم */
+        .advanced-search-panel {
+            padding: 25px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            display: none;
+        }
+
+        .advanced-search-panel.show {
+            display: block;
+            animation: slideDownAdvanced 0.3s ease;
+        }
+
+        @keyframes slideDownAdvanced {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .advanced-search-panel h5 {
+            color: #2c3e50;
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .advanced-filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            color: #495057;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-group select {
+            padding: 10px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            background: white;
+            color: #495057;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .type-checkboxes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .type-checkboxes label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .apply-filters-btn {
+            grid-column: 1 / -1;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .apply-filters-btn:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        /* التصفح */
+        .results-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .page-number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            color: #495057;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .page-number:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+
+        .page-number.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        /* تجاوبية */
+        @media (max-width: 768px) {
+            .global-search-btn {
+                top: 195px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .global-search-container {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .search-input-wrapper {
+                flex-direction: column;
+            }
+
+            .global-search-action-btn {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .option-buttons {
+                justify-content: center;
+            }
+
+            .suggestion-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .search-quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-controls {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .results-filters {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .advanced-filters {
+                grid-template-columns: 1fr;
+            }
+
+            .category-tags {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .global-search-header {
+                padding: 20px;
+            }
+
+            .search-title h3 {
+                font-size: 1.3rem;
+            }
+
+            .global-search-input-section,
+            .global-search-suggestions,
+            .global-search-results {
+                padding: 20px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .type-checkboxes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* مؤشر التحميل */
+        .search-loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+
+        .search-loading i {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 15px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* لا توجد نتائج */
+        .no-global-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6c757d;
+        }
+
+        .no-global-results i {
+            font-size: 4rem;
+            color: #dee2e6;
+            margin-bottom: 20px;
+        }
+
+        .no-global-results h4 {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .no-global-results p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .try-again-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .try-again-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+    </style>
+
+    <script>
+        // قاعدة بيانات المحتوى الشامل
+        const globalContentDatabase = [
+            // مجالس
+            {
+                id: 'mgls1',
+                type: 'article',
+                category: 'mgls',
+                title: 'مجالس زجاجية خارجية فاخرة',
+                content: 'تعتبر المجالس الزجاجية الخارجية من أبرز صيحات التصميم الحديث في المملكة العربية السعودية. تمزج هذه المجالس بين الأناقة العصرية والوظيفية العملية، حيث توفر إطلالات بانورامية رائعة مع الحفاظ على الخصوصية والعزل الحراري.',
+                keywords: ['مجالس', 'زجاج', 'خارجية', 'فاخرة', 'عزل حراري', 'تصميم حديث', 'سعودية'],
+                image: 'img/mgls1.webp',
+                page: 'mgls.html',
+                date: '2026-01-15',
+                tags: ['مجالس', 'زجاج', 'تصميم', 'عزل'],
+                views: 1250
+            },
+            {
+                id: 'mgls2',
+                type: 'article',
+                category: 'mgls',
+                title: 'مجالس جاهزة بتصميم كلاسيكي',
+                content: 'تتميز المجالس الخارجية الجاهزة بسرعة التركيب وجودة التصنيع العالية. نحن في شركة القاسم نقدم حلولاً متكاملة تشمال تركيب سريع خلال 48 ساعة فقط مع ضمان 5 سنوات على الهياكل.',
+                keywords: ['مجالس جاهزة', 'كلاسيكي', 'تركيب سريع', 'ضمان', 'هياكل'],
+                image: 'img/mgls2.webp',
+                page: 'mgls.html',
+                date: '2026-01-18',
+                tags: ['جاهزة', 'كلاسيكي', 'تركيب', 'ضمان'],
+                views: 980
+            },
+            {
+                id: 'mgls3',
+                type: 'article',
+                category: 'mgls',
+                title: 'مجالس زجاجية كبيرة للمنازل',
+                content: 'تعتبر المجالس الزجاجية الكبيرة الخيار الأمثل للعائلات الكبيرة أو للاستقبالات الرسمية. نوفر أنظمة زجاج خاصة للمساحات الكبيرة قادرة على تحمل الرياح والعوامل الجوية.',
+                keywords: ['مجالس كبيرة', 'عائلات', 'استقبالات', 'زجاج مقاوم', 'مساحات كبيرة'],
+                image: 'img/mgls3.webp',
+                page: 'mgls.html',
+                date: '2026-01-20',
+                tags: ['كبيرة', 'عائلات', 'رسمية', 'مقاومة'],
+                views: 1120
+            },
+            {
+                id: 'mgls_prices',
+                type: 'product',
+                category: 'mgls',
+                title: 'أسعار المجالس الجاهزة 2026',
+                content: 'نقدم في شركة القاسم أفضل الأسعار التنافسية للمجالس الجاهزة مع الحفاظ على أعلى معايير الجودة: مجلس صغير 4×6 متر بسعر 7,500 ريال، مجلس متوسط 6×8 متر بسعر 12,000 ريال، مجلس كبير 8×10 متر بسعر 18,000 ريال.',
+                keywords: ['أسعار', 'مجالس', 'جاهزة', '2026', 'تخفيضات', 'عروض', 'ريال'],
+                image: 'img/mgls5.webp',
+                page: 'mgls.html',
+                date: '2026-01-25',
+                tags: ['أسعار', 'عروض', 'تخفيضات', 'جاهزة'],
+                views: 2500,
+                price: '7,500 - 18,000 ريال'
+            },
+
+            // مظلات وسيارات
+            {
+                id: 'mogef1',
+                type: 'service',
+                category: 'mathalat',
+                title: 'موقف سيارات ساندوتش بانل مظلات',
+                content: 'موقف سيارات ساندوتش بانل مظلات في الرياض وكافة مدن السعودية للتوريد والتركيب حيث نتميز بتركيب مواقف ساندوتش بانل بجودة عالية باستخدام الحديد مع عزل حراري ممتاز.',
+                keywords: ['مواقف', 'سيارات', 'ساندوتش بانل', 'مظلات', 'حديد', 'عزل'],
+                image: 'img/mogef_syarat1.webp',
+                page: 'mogef.html',
+                date: '2026-01-10',
+                tags: ['مواقف', 'سيارات', 'حديد', 'عزل'],
+                views: 890
+            },
+            {
+                id: 'mogef2',
+                type: 'image',
+                category: 'mathalat',
+                title: 'تصميمات مواقف السيارات الحديثة',
+                content: 'تصاميم احترافية بمواصفات عالية باستخدام ألواح الساندوتش بطريقة احترافية تساعد في إنشاء مقاول ساندوتش بانل يوفر التوريد والتركيب.',
+                keywords: ['تصميمات', 'مواقف', 'حديثة', 'ساندوتش', 'ألواح', 'تصاميم'],
+                image: 'img/mogef_syarat4.webp',
+                page: 'mogef.html',
+                date: '2026-01-12',
+                tags: ['تصميمات', 'حديثة', 'ألواح', 'احترافية'],
+                views: 760
+            },
+
+            // تشطيب وملاحق
+            {
+                id: 'mlahek1',
+                type: 'article',
+                category: 'tashtib',
+                title: 'تشطيب الملاحق الخارجية - رفع قيمة العقار',
+                content: 'تشمل خدماتنا في تشطيب الملاحق الخارجية تقديم حلول متكاملة تبدأ من التصميم الهندسي المتقن وصولاً إلى التنفيذ بأعلى معايير الجودة. نستخدم مواد عزل حراري مقاومة للظروف الجوية القاسية.',
+                keywords: ['تشطيب', 'ملاحق', 'خارجية', 'عقار', 'عزل', 'تصميم'],
+                image: 'img/mlahek_tashtep1.webp',
+                page: 'mlahek.html',
+                date: '2026-01-05',
+                tags: ['تشطيب', 'ملاحق', 'تصميم', 'عزل'],
+                views: 1100
+            },
+            {
+                id: 'mlahek2',
+                type: 'service',
+                category: 'tashtib',
+                title: 'تشطيب شقق سكنية - أناقة ووظيفية',
+                content: 'تخصص شركة القاسم في تشطيب الشقق السكنية يمزج بين الأناقة المعاصرة والكفاءة الوظيفية. نقدم حلولاً ذكية لاستغلال المساحات الصغيرة والمتوسطة، مع التركيز على تخزين مبتكر وإضاءة محسنة.',
+                keywords: ['تشطيب', 'شقق', 'سكنية', 'أناقة', 'وظيفية', 'تخزين', 'إضاءة'],
+                image: 'img/mlahek_tashtep2.webp',
+                page: 'mlahek.html',
+                date: '2026-01-08',
+                tags: ['شقق', 'سكنية', 'تخزين', 'إضاءة'],
+                views: 950
+            },
+
+            // برجولات
+            {
+                id: 'barjolat1',
+                type: 'product',
+                category: 'mathalat',
+                title: 'برجولات خشبية بتصاميم فاخرة',
+                content: 'برجولات خشبية عالية الجودة بتصاميم فريدة تناسب جميع المساحات الخارجية. نستخدم أخشاب ساج وبلوط عالية المقاومة للعوامل الجوية مع طلاء حماية خاص.',
+                keywords: ['برجولات', 'خشبية', 'فاخرة', 'ساج', 'بلوط', 'طلاء', 'حماية'],
+                image: 'img/barjolat1.jpg',
+                page: 'barjolat.html',
+                date: '2026-01-22',
+                tags: ['برجولات', 'خشبية', 'فاخرة', 'جودة'],
+                views: 820,
+                price: '5,000 - 25,000 ريال'
+            },
+
+            // بيوت شعر
+            {
+                id: 'pyot1',
+                type: 'product',
+                category: 'other',
+                title: 'بيوت شعر ملكية بتصاميم تراثية',
+                content: 'بيوت شعر ملكية بأقمشة عالية الجودة وإطارات معدنية قوية. تصاميم تراثية معزولة حرارياً تناسب المناسبات والاستراحات الصحراوية.',
+                keywords: ['بيوت شعر', 'ملكية', 'تراثية', 'أقمشة', 'عزل حراري', 'صحراوية'],
+                image: 'img/pyot1.jpg',
+                page: 'pyot_shar_malakya.html',
+                date: '2026-01-30',
+                tags: ['بيوت شعر', 'تراثية', 'عزل', 'ملكية'],
+                views: 680,
+                price: '3,000 - 15,000 ريال'
+            },
+
+            // أبواب حديد
+            {
+                id: 'doors1',
+                type: 'product',
+                category: 'doors',
+                title: 'أبواب حديد خارجية مقاومة للسرقة',
+                content: 'أبواب حديد خارجية فاخرة بمقاومة عالية للسرقة والظروف الجوية. تصاميم حديثة مع أنظمة أمان متطورة وأقفال إلكترونية.',
+                keywords: ['أبواب', 'حديد', 'خارجية', 'مقاومة', 'سرقة', 'أمان', 'إلكترونية'],
+                image: 'img/doors1.jpg',
+                page: 'abwab_haded.html',
+                date: '2026-01-28',
+                tags: ['أبواب', 'حديد', 'أمان', 'مقاومة'],
+                views: 740,
+                price: '2,500 - 8,000 ريال'
+            },
+
+            // شبوك
+            {
+                id: 'shbok1',
+                type: 'product',
+                category: 'doors',
+                title: 'شبوك زراعية وحماية بأعلى المواصفات',
+                content: 'شبوك زراعية وحماية مصنوعة من أسلاك مجلفنة عالية المقاومة للصدأ. متوفرة بأطوال وأشكال مختلفة تناسب جميع أنواع الأراضي.',
+                keywords: ['شبوك', 'زراعية', 'حماية', 'أسلاك', 'مجلفنة', 'مقاومة', 'صدأ'],
+                image: 'img/shbok1.jpg',
+                page: 'shbok.html',
+                date: '2026-01-25',
+                tags: ['شبوك', 'زراعية', 'حماية', 'مجلفنة'],
+                views: 610,
+                price: '20 - 80 ريال للمتر'
+            },
+
+            // قرميد
+            {
+                id: 'grmed1',
+                type: 'product',
+                category: 'tashtib',
+                title: 'أسقف قرميد بأنواع وألوان متنوعة',
+                content: 'قرميد عالي الجودة لأسقف المنازل والفلل. متوفر بأنواع وألوان مختلفة مع ضمان عدم تسرب المياه ومقاومة الحرارة.',
+                keywords: ['قرميد', 'أسقف', 'منازل', 'فلل', 'ألوان', 'مقاومة', 'حرارة'],
+                image: 'img/grmed1.jpg',
+                page: 'grmed.html',
+                date: '2026-01-20',
+                tags: ['قرميد', 'أسقف', 'منازل', 'فلل'],
+                views: 550,
+                price: '45 - 120 ريال للمتر'
+            }
+        ];
+
+        // عناصر DOM
+        const globalSearchToggle = document.getElementById('globalSearchToggle');
+        const globalSearchModal = document.getElementById('globalSearchModal');
+        const globalCloseSearch = document.getElementById('globalCloseSearch');
+        const globalSearchInput = document.getElementById('globalSearchInput');
+        const globalSearchButton = document.getElementById('globalSearchButton');
+        const globalResultsList = document.getElementById('globalResultsList');
+        const globalResultsCount = document.getElementById('globalResultsCount');
+        const searchTime = document.getElementById('searchTime');
+        const filterToggle = document.getElementById('filterToggle');
+        const advancedSearchPanel = document.getElementById('advancedSearchPanel');
+        const applyFilters = document.getElementById('applyFilters');
+        const optionButtons = document.querySelectorAll('.option-btn');
+        const smartTags = document.querySelectorAll('.smart-tag');
+
+        // البحث المتقدم
+        let currentFilter = 'all';
+        let currentSort = 'relevance';
+        let currentDateFilter = 'all';
+        let currentCategoryFilter = 'all';
+        let currentContentTypes = ['article', 'image', 'product', 'service'];
+
+        // فتح/إغلاق البحث
+        globalSearchToggle.addEventListener('click', () => {
+            globalSearchModal.classList.add('active');
+            globalSearchInput.focus();
+            showLoading();
+            setTimeout(() => {
+                performSearch('');
+            }, 500);
+        });
+
+        globalCloseSearch.addEventListener('click', () => {
+            globalSearchModal.classList.remove('active');
+        });
+
+        // إغلاق عند الضغط على ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && globalSearchModal.classList.contains('active')) {
+                globalSearchModal.classList.remove('active');
+            }
+        });
+
+        // إغلاق عند النقر خارج النافذة
+        globalSearchModal.addEventListener('click', (e) => {
+            if (e.target === globalSearchModal) {
+                globalSearchModal.classList.remove('active');
+            }
+        });
+
+        // تبديل البحث المتقدم
+        filterToggle.addEventListener('click', () => {
+            advancedSearchPanel.classList.toggle('show');
+        });
+
+        // تطبيق الفلاتر
+        applyFilters.addEventListener('click', () => {
+            currentDateFilter = document.getElementById('dateFilter').value;
+            currentCategoryFilter = document.getElementById('categoryFilter').value;
+
+            // جمع أنواع المحتوى المحددة
+            currentContentTypes = [];
+            document.querySelectorAll('input[name="contentType"]:checked').forEach(cb => {
+                currentContentTypes.push(cb.value);
+            });
+
+            performSearch(globalSearchInput.value.trim());
+            advancedSearchPanel.classList.remove('show');
+        });
+
+        // خيارات البحث
+        optionButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                optionButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                performSearch(globalSearchInput.value.trim());
+            });
+        });
+
+        // البحث عند النقر على الاقتراحات
+        smartTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                const searchText = tag.dataset.search;
+                globalSearchInput.value = searchText;
+                performSearch(searchText);
+            });
+        });
+
+        // البحث عند الضغط على زر البحث
+        globalSearchButton.addEventListener('click', () => {
+            const query = globalSearchInput.value.trim();
+            performSearch(query);
+        });
+
+        // البحث عند الضغط على Enter
+        globalSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = globalSearchInput.value.trim();
+                performSearch(query);
+            }
+        });
+
+        // البحث الفوري
+        globalSearchInput.addEventListener('input', () => {
+            const query = globalSearchInput.value.trim();
+            if (query.length >= 2) {
+                performSearch(query);
+            } else if (query.length === 0) {
+                performSearch('');
+            }
+        });
+
+        // ترتيب النتائج
+        document.getElementById('resultsSort').addEventListener('change', function () {
+            currentSort = this.value;
+            performSearch(globalSearchInput.value.trim());
+        });
+
+        // عرض مؤشر التحميل
+        function showLoading() {
+            globalResultsList.innerHTML = `
+        <div class="search-loading">
+            <i class="fas fa-spinner"></i>
+            <p>جاري البحث في قاعدة البيانات...</p>
+        </div>
+    `;
+        }
+
+        // البحث الشامل
+        function performSearch(query) {
+            const startTime = performance.now();
+
+            // عرض التحميل
+            showLoading();
+
+            // محاكاة التأخير للبحث
+            setTimeout(() => {
+                let results = [];
+
+                if (query.trim() === '') {
+                    // عرض المحتوى العشوائي عند عدم وجود بحث
+                    results = getRandomContent(10);
+                } else {
+                    // البحث الفعلي
+                    results = searchInDatabase(query);
+                }
+
+                // تطبيق الفلاتر
+                results = applyAllFilters(results);
+
+                // ترتيب النتائج
+                results = sortResults(results, currentSort);
+
+                // عرض النتائج
+                displayResults(results, query);
+
+                // حساب وقت البحث
+                const endTime = performance.now();
+                const searchDuration = (endTime - startTime) / 1000;
+                searchTime.textContent = searchDuration.toFixed(2) + ' ثانية';
+
+            }, 300);
+        }
+
+        // البحث في قاعدة البيانات
+        function searchInDatabase(query) {
+            const searchTerms = query.toLowerCase().split(' ').filter(term => term.length > 1);
+            const results = [];
+
+            if (searchTerms.length === 0) return results;
+
+            globalContentDatabase.forEach(item => {
+                let score = 0;
+                const textToSearch = `
+            ${item.title.toLowerCase()}
+            ${item.content.toLowerCase()}
+            ${item.keywords.join(' ').toLowerCase()}
+            ${item.tags.join(' ').toLowerCase()}
+        `;
+
+                // البحث في النص
+                searchTerms.forEach(term => {
+                    // البحث في العنوان (أعلى وزن)
+                    if (item.title.toLowerCase().includes(term)) score += 10;
+
+                    // البحث في الكلمات المفتاحية
+                    if (item.keywords.some(kw => kw.toLowerCase().includes(term))) score += 8;
+
+                    // البحث في المحتوى
+                    if (item.content.toLowerCase().includes(term)) score += 5;
+
+                    // البحث في الوسوم
+                    if (item.tags.some(tag => tag.toLowerCase().includes(term))) score += 3;
+                });
+
+                // تطابق كامل للكلمة
+                searchTerms.forEach(term => {
+                    if (item.title.toLowerCase() === term) score += 15;
+                    if (item.keywords.some(kw => kw.toLowerCase() === term)) score += 12;
+                });
+
+                if (score > 0) {
+                    results.push({
+                        ...item,
+                        score,
+                        matches: highlightMatches(item, searchTerms)
+                    });
+                }
+            });
+
+            return results;
+        }
+
+        // تطبيق جميع الفلاتر
+        function applyAllFilters(results) {
+            return results.filter(item => {
+                // فلتر النوع
+                if (!currentContentTypes.includes(item.type)) return false;
+
+                // فلتر التصنيف
+                if (currentCategoryFilter !== 'all' && item.category !== currentCategoryFilter) return false;
+
+                // فلتر التاريخ
+                if (currentDateFilter !== 'all') {
+                    const itemDate = new Date(item.date);
+                    const now = new Date();
+                    const diffTime = Math.abs(now - itemDate);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                    switch (currentDateFilter) {
+                        case 'week': if (diffDays > 7) return false; break;
+                        case 'month': if (diffDays > 30) return false; break;
+                        case 'year': if (diffDays > 365) return false; break;
+                        case '2026': if (!item.date.startsWith('2026')) return false; break;
+                    }
+                }
+
+                // فلتر النوع المحدد (مثل: مقالات فقط، صور فقط، إلخ)
+                if (currentFilter !== 'all') {
+                    if (currentFilter === 'articles' && item.type !== 'article') return false;
+                    if (currentFilter === 'images' && item.type !== 'image') return false;
+                    if (currentFilter === 'services' && item.type !== 'service') return false;
+                    if (currentFilter === 'prices' && !item.price) return false;
+                }
+
+                return true;
+            });
+        }
+
+        // ترتيب النتائج
+        function sortResults(results, sortBy) {
+            switch (sortBy) {
+                case 'newest':
+                    return results.sort((a, b) => new Date(b.date) - new Date(a.date));
+                case 'oldest':
+                    return results.sort((a, b) => new Date(a.date) - new Date(b.date));
+                case 'popular':
+                    return results.sort((a, b) => (b.views || 0) - (a.views || 0));
+                case 'relevance':
+                default:
+                    return results.sort((a, b) => b.score - a.score);
+            }
+        }
+
+        // إضافة التمييز للكلمات المطابقة
+        function highlightMatches(item, searchTerms) {
+            let highlightedContent = item.content;
+            searchTerms.forEach(term => {
+                const regex = new RegExp(`(${term})`, 'gi');
+                highlightedContent = highlightedContent.replace(regex, '<span class="result-highlight">$1</span>');
+            });
+            return highlightedContent;
+        }
+
+        // عرض المحتوى العشوائي
+        function getRandomContent(count) {
+            const shuffled = [...globalContentDatabase].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count).map(item => ({
+                ...item,
+                score: Math.floor(Math.random() * 100),
+                matches: item.content
+            }));
+        }
+
+        // الحصول على أيقونة النوع
+        function getTypeIcon(type) {
+            switch (type) {
+                case 'article': return 'fas fa-newspaper';
+                case 'image': return 'fas fa-image';
+                case 'product': return 'fas fa-box';
+                case 'service': return 'fas fa-cogs';
+                default: return 'fas fa-file';
+            }
+        }
+
+        // الحصول على نص النوع
+        function getTypeText(type) {
+            switch (type) {
+                case 'article': return 'مقال';
+                case 'image': return 'صورة';
+                case 'product': return 'منتج';
+                case 'service': return 'خدمة';
+                default: return 'محتوى';
+            }
+        }
+
+        // الحصول على نص التصنيف
+        function getCategoryText(category) {
+            switch (category) {
+                case 'mgls': return 'مجالس';
+                case 'mathalat': return 'مظلات وسواتر';
+                case 'tashtib': return 'تشطيب وبناء';
+                case 'doors': return 'أبواب وشبوك';
+                default: return 'أخرى';
+            }
+        }
+
+        // عرض النتائج
+        function displayResults(results, query) {
+            globalResultsList.innerHTML = '';
+            globalResultsCount.textContent = `${results.length} نتيجة`;
+
+            if (results.length === 0) {
+                globalResultsList.innerHTML = `
+            <div class="no-global-results">
+                <i class="fas fa-search-minus"></i>
+                <h4>لا توجد نتائج للبحث عن "${query}"</h4>
+                <p>جرب كلمات بحث مختلفة أو تحقق من إملاء الكلمات.</p>
+                <button class="try-again-btn" onclick="globalSearchInput.focus()">
+                    <i class="fas fa-redo"></i> حاول مرة أخرى
+                </button>
+            </div>
+        `;
+                return;
+            }
+
+            results.forEach(result => {
+                const resultCard = document.createElement('div');
+                resultCard.className = `result-card ${result.type}`;
+                resultCard.innerHTML = `
+            <div class="result-header">
+                <h3 class="result-title">
+                    <i class="${getTypeIcon(result.type)}"></i>
+                    ${result.title}
+                </h3>
+                <span class="result-type">${getTypeText(result.type)}</span>
+            </div>
+            
+            <div class="result-content">
+                ${result.matches || result.content}
+            </div>
+            
+            <div class="result-meta">
+                <div class="result-source">
+                    <i class="fas fa-folder"></i>
+                    <span>${getCategoryText(result.category)}</span>
+                    <i class="fas fa-calendar" style="margin-right: 15px;"></i>
+                    <span>${formatDate(result.date)}</span>
+                    ${result.views ? `<i class="fas fa-eye" style="margin-right: 15px;"></i><span>${result.views} مشاهدة</span>` : ''}
+                </div>
+                ${result.price ? `<span style="color: #27ae60; font-weight: bold;">${result.price}</span>` : ''}
+            </div>
+        `;
+
+                resultCard.addEventListener('click', () => {
+                    if (result.page) {
+                        window.location.href = result.page;
+                        globalSearchModal.classList.remove('active');
+                    }
+                });
+
+                globalResultsList.appendChild(resultCard);
+            });
+        }
+
+        // تنسيق التاريخ
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('ar-SA', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // تهيئة البحث عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            // تعيين القيم الافتراضية
+            document.getElementById('dateFilter').value = currentDateFilter;
+            document.getElementById('categoryFilter').value = currentCategoryFilter;
+
+            // اختيار جميع أنواع المحتوى افتراضياً
+            document.querySelectorAll('input[name="contentType"]').forEach(cb => {
+                cb.checked = true;
+            });
+
+            // تعيين حدث للبحث الفوري
+            globalSearchInput.addEventListener('input', () => {
+                const query = globalSearchInput.value.trim();
+                if (query.length >= 2) {
+                    performSearch(query);
+                }
+            });
+        });
+
+        // وظيفة عامة لفتح البحث من أي مكان
+        window.openGlobalSearch = function (initialQuery = '') {
+            globalSearchModal.classList.add('active');
+            globalSearchInput.value = initialQuery;
+            globalSearchInput.focus();
+            if (initialQuery) {
+                performSearch(initialQuery);
+            }
+        };
+
+        // اختصارات لوحة المفاتيح
+        document.addEventListener('keydown', (e) => {
+            // Ctrl + K للبحث
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                openGlobalSearch();
+            }
+        });
+
+        // تحديث الإحصائيات
+        function updateStats() {
+            const totalArticles = globalContentDatabase.filter(item => item.type === 'article').length;
+            const totalImages = globalContentDatabase.filter(item => item.type === 'image').length;
+            const totalProducts = globalContentDatabase.filter(item => item.type === 'product').length;
+            const totalServices = globalContentDatabase.filter(item => item.type === 'service').length;
+
+            // يمكن تحديث أرقام الإحصائيات هنا
+            console.log(`مقالات: ${totalArticles}, صور: ${totalImages}, منتجات: ${totalProducts}, خدمات: ${totalServices}`);
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- زر القائمة الجانبية للجوال -->
     <button class="hamburger-menu" id="hamburgerMenu">☰</button>
@@ -1260,7 +2954,7 @@ align-items: center;
             <div class="gallery-item">
                 <a href="mgls.html">
                     <div class="image-container">
-                        <img src="img/mgls9.jpg" alt="مجالس خارجية واجهات زجاج" loading="lazy">
+                        <img src="img/mgls6.webp" alt="مجالس خارجية واجهات زجاج" loading="lazy">
                     </div>
                     <p>مجالس خارجية واجهات زجاج</p>
                 </a>
@@ -1268,7 +2962,7 @@ align-items: center;
             <div class="gallery-item">
                 <a href="sand_banal.html">
                     <div class="image-container">
-                        <img src="img/sand_index.webp" alt="غرف ساندوتش بانل" loading="lazy">
+                        <img src="img/sand_banal3.webp" alt="غرف ساندوتش بانل" loading="lazy">
                     </div>
                     <p>غرف ساندوتش بانل</p>
                 </a>
@@ -1284,7 +2978,7 @@ align-items: center;
             <div class="gallery-item">
                 <a href="swater_liser.html">
                     <div class="image-container">
-                        <img src="img/swater_index.webp" alt="سواتر ليزر" loading="lazy">
+                        <img src="img/swater_lezer2.webp" alt="سواتر ليزر" loading="lazy">
                     </div>
                     <p>سواتر ليزر</p>
                 </a>
@@ -1299,7 +2993,7 @@ align-items: center;
             <div class="gallery-item">
                 <a href="mlahek_tashtep.html">
                     <div class="image-container">
-                        <img src="img/tashteb_index.webp" alt="ملاحق شقق تشطيب" loading="lazy">
+                        <img src="img/mlahek_tashtep2.webp" alt="ملاحق شقق تشطيب" loading="lazy">
                     </div>
                     <p>ملاحق شقق تشطيب</p>
                 </a>
@@ -1323,7 +3017,7 @@ align-items: center;
             <div class="gallery-item">
                 <a href="tarkep_mathalah.html">
                     <div class="image-container">
-                        <img src="img/mathlat_index.webp" alt="مظلات" loading="lazy">
+                        <img src="img/tarkep_mathalah3.webp" alt=" تركيب مظلات متنوعة " loading="lazy">
                     </div>
                     <p>تركيب مظلات</p>
                 </a>
